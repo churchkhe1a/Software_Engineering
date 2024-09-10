@@ -25,6 +25,8 @@
 
 ## Задание №1
 ### Установка. 
+![image](https://github.com/user-attachments/assets/3f5828d1-54d6-4ec0-9da8-7d136a882aab)
+
 
 
 
