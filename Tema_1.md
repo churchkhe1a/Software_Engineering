@@ -37,11 +37,11 @@
 
 ## Задание №4
 ### Подготовка файлов. 
-
+![image](https://github.com/user-attachments/assets/bc814a66-8b3b-405c-96c7-5ab674e33ecc)
 
 ## Задание №5
 ### Фиксация изменений. 
-
+![image](https://github.com/user-attachments/assets/67a082c3-c4b8-4e44-a1d4-91d6690ecba5)
 
 ## Задание №6
 ### Подключение к удаленному репозиторию. 
