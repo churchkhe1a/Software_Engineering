@@ -83,9 +83,9 @@
 
 ## Задание №14
 ### Разрешение конфликтов при слиянии.
-![image](https://github.com/user-attachments/assets/98b64004-71e7-4ba2-b643-0f7e9b999bba)
+
 
 ## Задание №15
 ### Настройка .gitignore. 
-![image](https://github.com/user-attachments/assets/fd77dc36-37a2-4cd7-ba64-77421b18dfa9)
-]
+
+
