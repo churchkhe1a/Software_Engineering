@@ -106,6 +106,7 @@ print(one + two)
 - Текст задания
 - Оформленный код
 ### Результат.
+![image](https://github.com/user-attachments/assets/71cbf4f9-1674-4426-928a-3f9de1086afc)
 
 - Краткие Выводы
 
