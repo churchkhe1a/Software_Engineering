@@ -161,6 +161,7 @@ print (line * 3)
 - Текст задания
 - Оформленный код
 ### Результат.
+![image](https://github.com/user-attachments/assets/ed0bb33e-7b8c-4ae1-a63b-38b5d6b6bf4e)
 
 - Краткие Выводы
 
