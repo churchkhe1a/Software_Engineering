@@ -177,6 +177,7 @@ print (line * 3)
 - Текст задания
 - Оформленный код
 ### Результат.
+![image](https://github.com/user-attachments/assets/f03aa7d6-7ea8-47ec-b852-1d852e58bebb)
 
 - Краткие Выводы
 
