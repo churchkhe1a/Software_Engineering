@@ -114,6 +114,7 @@ print(one + two)
 - Текст задания
 - Оформленный код
 ### Результат.
+![image](https://github.com/user-attachments/assets/cb5eff68-31a5-4c8d-aa0f-00a4fccde051)
 
 - Краткие Выводы
 
