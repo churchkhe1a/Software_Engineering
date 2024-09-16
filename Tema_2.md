@@ -324,11 +324,12 @@ print(sentence.replace(' ', ' my '))
 ### Узнайте длину предложения ‘Hello World’, результат выведите в консоль. Программа должна занимать не более двух строк редактора кода.
 
 ```python
-sentence = 'hello world'
+sentence = 'Hello World'
 print(len(sentence))
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/a4151fc6-92ae-477f-912a-369132f60033)
 
 ## Вывод
 Функция len()  возвращает длину строки sentence (количество символов).
