@@ -343,6 +343,7 @@ print(sentence.lower())
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/87cb57e0-a4ff-4044-8e57-eaaff770cd52)
 
 ## Вывод
 Метод lower() преобразует все символы строки sentence в нижний регистр.
