@@ -315,6 +315,7 @@ print(sentence.replace(' ', ' my '))
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/1ef12181-2751-4af1-acb5-d7c431ecb8ac)
 
 ## Вывод
 Метод replace() заменяет все вхождения первого аргумента (в данном случае пробела ' ') на второй аргумент (строку ' my ').
@@ -323,7 +324,7 @@ print(sentence.replace(' ', ' my '))
 ### Узнайте длину предложения ‘Hello World’, результат выведите в консоль. Программа должна занимать не более двух строк редактора кода.
 
 ```python
-sentence = 'Hello World'
+sentence = 'hello world'
 print(len(sentence))
 ```
 
