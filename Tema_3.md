@@ -109,7 +109,7 @@ else:
 
 ### Результат.
 ![image](https://github.com/user-attachments/assets/fbe83032-4f37-4918-971a-29ecab9a205a)
-
+![image](https://github.com/user-attachments/assets/a78cccc7-79b8-4bf2-8508-55bbc3c8df5b)
 
 ## Вывод
 1. `numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]`: Создаётся список numbers с числами от 1 до 10.
