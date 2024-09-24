@@ -282,7 +282,7 @@ else:
 ```
 
 ### Результат.
-https://github.com/churchkhe1a/Software_Engineering/blob/Tema_3/pic/lab10.png
+![image](https://github.com/user-attachments/assets/7a0fde14-e252-457f-b916-0191f3d6c2b2)
 
 ## Вывод
 Этот код проверяет, есть ли в списке numbers нечетные числа. 
