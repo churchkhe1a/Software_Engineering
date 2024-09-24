@@ -406,6 +406,7 @@ else:
 ### Результат.
 ![image](https://github.com/user-attachments/assets/fbda48e1-ac6a-44e8-bd30-5c44982dec72)
 ![image](https://github.com/user-attachments/assets/5735a4e5-7e9d-4aa7-8565-374835bab813)
+![image](https://github.com/user-attachments/assets/48dce85b-fb12-4e28-8733-f0afd4a16143)
 
 ## Вывод
 Программа анализирует введённое предложение, вычисляя его длину, количество гласных, заменяя слово "ugly" на "beauty" и проверяя начало и конец предложения на определённые слова.
