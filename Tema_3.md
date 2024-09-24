@@ -203,7 +203,7 @@ for i in range(10, -1, -1):
 ```
 
 ### Результат.
-https://github.com/churchkhe1a/Software_Engineering/blob/Tema_3/pic/lab7.png
+![image](https://github.com/user-attachments/assets/d0ce3eb9-59af-4355-b824-77cbcc479a16)
 
 ## Вывод
 В данном примере цикл for используется для имитации отсчета времени, который идет в обратном порядке. В каждой итерации цикла мы вычитаем значение i (секунды) из value (начальное значение 10), чтобы получить оставшееся время.
