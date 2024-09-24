@@ -35,7 +35,7 @@ else:
 ```
 
 ### Результат.
-https://github.com/churchkhe1a/Software_Engineering/blob/Tema_3/pic/lab1.png
+![image](https://github.com/user-attachments/assets/2d3e93bf-cb35-4f26-8a90-3675b58c2f12)
 
 ## Вывод
 1. `a = input("Введите значение первой переменной: ")`: Программа просит ввести первое значение и сохраняет его в переменную a. 
