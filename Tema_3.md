@@ -258,7 +258,7 @@ print(value)
 ```
 
 ### Результат.
-https://github.com/churchkhe1a/Software_Engineering/blob/Tema_3/pic/lab9.png
+![image](https://github.com/user-attachments/assets/afb6f891-4d23-4f39-a8dc-f89b29cfb5bd)
 
 ## Вывод
 Можно сказать, программа считает сумму чисел в таблице 10 на 10, исключая диагональные элементы.
