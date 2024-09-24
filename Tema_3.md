@@ -35,7 +35,7 @@ else:
 ```
 
 ### Результат.
-
+https://github.com/churchkhe1a/Software_Engineering/blob/Tema_3/pic/lab1.png
 
 ## Вывод
 1. `a = input("Введите значение первой переменной: ")`: Программа просит ввести первое значение и сохраняет его в переменную a. 
@@ -59,7 +59,7 @@ else:
 ```
 
 ### Результат.
-
+https://github.com/churchkhe1a/Software_Engineering/blob/Tema_3/pic/lab2.png
 
 ## Вывод
 Программа запрашивает у пользователя число и определяет, к какому из трёх диапазонов оно принадлежит: меньше 0, больше 0 и меньше 10, или больше или равно 10.
@@ -79,6 +79,7 @@ else:
 ```
 
 ### Результат.
+https://github.com/churchkhe1a/Software_Engineering/blob/Tema_3/pic/lab3.png
 
 ## Вывод
 1. `numbers = [1, 2, 3, 4, 5]`: Создается список numbers  с числами от 1 до 5.
@@ -107,7 +108,7 @@ else:
 ```
 
 ### Результат.
-
+https://github.com/churchkhe1a/Software_Engineering/blob/Tema_3/pic/lab4.png
 
 ## Вывод
 1. `numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]`: Создаётся список numbers с числами от 1 до 10.
@@ -138,6 +139,7 @@ for i in range(10):
 ```
 
 ### Результат.
+https://github.com/churchkhe1a/Software_Engineering/blob/Tema_3/pic/lab5.png
 
 ## Вывод
 1. `for i in range(10):`:  Создается цикл for, который будет перебирать значения i от 0 до 9 (включительно).
@@ -178,6 +180,7 @@ else:
 ```
 
 ### Результат.
+https://github.com/churchkhe1a/Software_Engineering/blob/Tema_3/pic/lab6.png
 
 ## Вывод
 1. `string = "Привет, мир!"`:  Создается строка string с текстом "Привет, мир!".
@@ -199,7 +202,7 @@ for i in range(10, -1, -1):
 ```
 
 ### Результат.
-
+https://github.com/churchkhe1a/Software_Engineering/blob/Tema_3/pic/lab7.png
 
 ## Вывод
 В данном примере цикл for используется для имитации отсчета времени, который идет в обратном порядке. В каждой итерации цикла мы вычитаем значение i (секунды) из value (начальное значение 10), чтобы получить оставшееся время.
@@ -233,7 +236,7 @@ while value < 100:
 ```
 
 ### Результат.
-
+https://github.com/churchkhe1a/Software_Engineering/blob/Tema_3/pic/lab8.png
 
 ## Вывод
 Правильно составленные условия в цикле while гарантируют его корректное завершение. Некорректные условия могут привести к бесконечному циклу, который не достигнет желаемого результата.
@@ -254,7 +257,7 @@ print(value)
 ```
 
 ### Результат.
-
+https://github.com/churchkhe1a/Software_Engineering/blob/Tema_3/pic/lab9.png
 
 ## Вывод
 Можно сказать, программа считает сумму чисел в таблице 10 на 10, исключая диагональные элементы.
@@ -278,7 +281,7 @@ else:
 ```
 
 ### Результат.
-
+https://github.com/churchkhe1a/Software_Engineering/blob/Tema_3/pic/lab10.png
 
 ## Вывод
 Этот код проверяет, есть ли в списке numbers нечетные числа. 
