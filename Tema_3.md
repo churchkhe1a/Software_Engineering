@@ -59,7 +59,7 @@ else:
 ```
 
 ### Результат.
-https://github.com/churchkhe1a/Software_Engineering/blob/Tema_3/pic/lab2.png
+![image](https://github.com/user-attachments/assets/c193c8b6-f47d-495a-bf58-29e3eafae3c1)
 
 ## Вывод
 Программа запрашивает у пользователя число и определяет, к какому из трёх диапазонов оно принадлежит: меньше 0, больше 0 и меньше 10, или больше или равно 10.
