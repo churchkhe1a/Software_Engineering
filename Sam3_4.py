@@ -1,10 +1,23 @@
-number = int(input("Введите число от 0 до 10: "))
-if 0 <= number <= 10:
-  if number <= 3:
-    print("Число находится в диапазоне от 0 до 3")
-  elif number <= 6:
-    print("Число находится в диапазоне от 3 до 6")
-  else:
-    print("Число находится в диапазоне от 6 до 10")
+sentence = input("Введите предложение: ")
+print("Длина предложения:", len(sentence))
+print("В нижнем регистре:", sentence.lower())
+
+vowels = "aeiou"
+vowel_count = 0
+for char in sentence:
+  if char in vowels:
+    vowel_count += 1
+print("Количество гласных:", vowel_count)
+
+replaced_sentence = sentence.replace("ugly", "beauty")
+print("Замена 'ugly' на 'beauty':", replaced_sentence)
+
+if sentence.startswith("The ") or sentence.startswith("the "):
+  print("Предложение начинается с 'The'")
 else:
-  print("Некорректный ввод. Число должно быть от 0 до 10.")
+  print("Предложение не начинается с 'The'")
+
+if sentence.endswith(" end"):
+  print("Предложение заканчивается на 'end'")
+else:
+  print("Предложение не заканчивается на 'end'")
