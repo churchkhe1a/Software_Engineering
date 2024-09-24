@@ -338,6 +338,7 @@ for letter in reversed(phrase):
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/084aa6d2-9f2c-4a6c-965f-bbea67fd6203)
 
 ## Вывод
 ```reversed(phrase)```:  Эта функция создает итератор, который проходит по символам строки в обратном порядке, но не изменяет исходную строку. 
