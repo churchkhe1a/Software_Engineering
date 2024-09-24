@@ -237,7 +237,7 @@ while value < 100:
 ```
 
 ### Результат.
-https://github.com/churchkhe1a/Software_Engineering/blob/Tema_3/pic/lab8.png
+![image](https://github.com/user-attachments/assets/e4ccd608-8a52-4310-8d87-5e593eb593e1)
 
 ## Вывод
 Правильно составленные условия в цикле while гарантируют его корректное завершение. Некорректные условия могут привести к бесконечному циклу, который не достигнет желаемого результата.
