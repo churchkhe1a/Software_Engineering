@@ -443,6 +443,7 @@ while ' world' not in string:
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/691b7eef-b3ec-46fe-bcd3-8df94f7500df)
 
 ## Вывод
 
