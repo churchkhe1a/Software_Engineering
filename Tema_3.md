@@ -378,7 +378,42 @@ else:
 5. `sentence.endswith(" end")`: Этот метод проверяет, заканчивается ли строка указанной подстрокой (в данном случае, " end").
   
 ## Самостоятельная работа №5
-### 
+### Составьте программу, результатом которой будет данный вывод в консоль:
+
+```python
+hello world
+hello
+hello world
+hello
+hello world
+hello
+hello world
+hello
+hello world
+```
+### Программу нужно составить из данных фрагментов кода:
+`memory = ' world'`
+`if values not in string:`
+while ' world' not in string:
+    string = string + ' world'
+  if counter in values:
+counter = 10
+string = 'hello'
+string = memory
+string = ' world'
+counter = 0
+if counter >=7
+print (string + memory)
+print(string)
+while counter !=10:
+values = [0, 2, 4, 6, 8, 10]
+memory = string
+if  counter < 10:
+counter+=1
+print(memory)
+memory = string
+Строки кода можно использовать только один раз.
+Не обязательно использовать все строки кода.
 
 ```python
 
