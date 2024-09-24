@@ -79,7 +79,7 @@ else:
 ```
 
 ### Результат.
-https://github.com/churchkhe1a/Software_Engineering/blob/Tema_3/pic/lab3.png
+![image](https://github.com/user-attachments/assets/2d7892f2-6139-4e24-9ed9-56abe7616c03)
 
 ## Вывод
 1. `numbers = [1, 2, 3, 4, 5]`: Создается список numbers  с числами от 1 до 5.
