@@ -181,7 +181,7 @@ else:
 ```
 
 ### Результат.
-https://github.com/churchkhe1a/Software_Engineering/blob/Tema_3/pic/lab6.png
+![image](https://github.com/user-attachments/assets/3daa298d-e6c6-4537-be3e-939a972b18b8)
 
 ## Вывод
 1. `string = "Привет, мир!"`:  Создается строка string с текстом "Привет, мир!".
