@@ -33,7 +33,7 @@ if __name__ == '__main__':
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/1b0c49de-b91d-4d4e-9927-c4e1790709a7)
 
 ## Вывод
 1. `def main()`: Определяет функцию с именем `main()`. Внутри нее -  инструкция  `print(2 + 2)`,  которая выводит  4  на экран.
@@ -64,7 +64,8 @@ if __name__ == '__main__':
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/e60c1264-ac99-457a-b7a5-7d3e57fb93c2)
+![image](https://github.com/user-attachments/assets/e535fd64-befd-40f2-88e0-0e6aedbdf3cb)
 
 ## Вывод
 Вторая  версия  кода  более  удобна  и  гибкая. Она  позволяет  сохранить  результат  функции  в  переменной  и  использовать  его  в  дальнейшем  коде,  что  делает  программу  более  эффективной.
@@ -96,7 +97,8 @@ for i in range(5):
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/6f2616e0-1d58-425d-9e79-60ca4f385bd2)
+![image](https://github.com/user-attachments/assets/dfa39a9a-4051-4547-bd84-ba2aa7727ad4)
 
 ## Вывод
 1. Обе  версии  кода  работают  корректно  и  выводят  результат  сложения  в  консоль  5  раз.
@@ -127,7 +129,7 @@ if __name__ == '__main__':
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/5ab8a266-ff75-49b4-8e94-9bc560f9dc3c)
 
 ## Вывод
 1. Функция `main(x, *args)`: `x`  -  первое  число  (ввод). `*args`  -  кортеж  с  оставшимися  числами. Используется  `sum(args)`  для  подсчета  суммы  чисел  в  кортеже. Используется  `len(args)`  для  определения  количества  чисел  в  кортеже. Вычисляется  результат  и  возвращается  с  помощью  `return`.
@@ -153,7 +155,7 @@ if __name__ == '__main__' :
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/067908cb-6c11-467b-b5fb-4b9e98646cb5)
 
 ## Вывод
 1. `*kwargs`: В Python `*kwargs`  используется для передачи неограниченного количества аргументов в виде пар "`ключ-значение`". `kwargs`  внутри функции  становится  словарём,  где  ключи  -  это  названия  переданных  аргументов,  а  значения  -  их  соответствующие  значения.
@@ -184,7 +186,7 @@ if __name__ == '__main__':
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/548f4e7a-c870-425d-a17f-27fead7657be)
 
 ## Вывод
 Программа успешно демонстрирует работу с `**kwargs`  и  функцией  `mean`. Она  показывает, как  передавать  неограниченное  количество  аргументов  в  виде  `ключ=значение`  и  вычислять  среднее  арифметическое  для  каждого  значения.
@@ -205,7 +207,8 @@ if __name__ == '__main__':
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/85e8abb7-537f-4901-aacc-49fa72cd3c17)
+![image](https://github.com/user-attachments/assets/628ceec6-62db-4ed7-b919-17ebf2c27294)
 
 ## Вывод
 1. `from function import print_hello` - импортирует функцию `print_hello` из файла function.py.
@@ -259,7 +262,9 @@ if __name__ == '__main__':
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/ac1a8aa4-fc1b-49d9-bf62-e612e64f4883)
+![image](https://github.com/user-attachments/assets/46f79a24-b715-4e36-8d4b-4e47acf4cd5e)
+![image](https://github.com/user-attachments/assets/70919840-60b3-4341-84bf-6ca2adc46e83)
 
 ## Вывод
 Способ 1: Общий, простой в понимании.
@@ -291,7 +296,7 @@ if __name__ == '__main__':
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/c611d522-4529-4336-b288-f14b032cdf0c)
 
 ## Вывод
 1. Импорт модулей:
@@ -331,7 +336,7 @@ elif figure == '2':
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/c0fd5e2d-b44b-4102-b55d-6cbc8f83f547)
 
 ## Вывод
 1. `result`: используется для хранения вычисленной площади. Ее использование в качестве глобальной переменной не является лучшей практикой, так как она может привести к ошибкам в больших проектах. 
@@ -367,7 +372,7 @@ print(f"Время выполнения программы - {time_costs}") # в
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/2eba457c-26d8-4409-b799-0aea77e58165)
 
 ## Вывод
 Программа вычисляет расстояние от начала координат до нескольких точек, заданных в виде списков координат. Затем она выводит эти расстояния на экран и измеряет время, которое потребовалось на выполнение расчетов. 
@@ -395,7 +400,7 @@ if __name__ == "__main__":
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/e7df6582-5d82-4029-9784-c6eb80ffc25f)
 
 ## Вывод
 1. `import random`:  Импортируется модуль `random`, чтобы использовать функцию `randint` для генерации случайных чисел.
