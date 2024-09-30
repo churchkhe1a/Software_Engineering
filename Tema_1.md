@@ -82,7 +82,7 @@
 ![image](https://github.com/user-attachments/assets/057bc6d1-821c-4737-ad25-16fd35815fc1)
 
 
-```
+
                     Main (Класс)
                       │
                       ├── JFrame (Главное окно)
@@ -110,7 +110,7 @@
                         │  └── timer (Таймер для обновления игры)
                         └── KeyListener (Обработчик событий клавиатуры)
                           └── keyCodes (Нажатые клавиши)
-```
+
 
 ## Задание №15
 ### Настройка .gitignore. 
