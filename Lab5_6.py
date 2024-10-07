@@ -1,10 +1,7 @@
-def main(**kwargs):
+superheroes = ['superman', 'spiderman', 'batman']
 
-    for i, j in kwargs.items():
-        print(f"{i}. Mean = {mean(j)}")
+nikolay, vasiliy, ivan = superheroes
 
-def mean(data):
-    return sum(data) / float(len(data))
-
-if __name__ == '__main__':
-    main(x = [1, 2, 3], y = [3, 3, 0], z=[2, 3, 0], q=[3, 3, 0])
+print('Николай - ', nikolay)
+print('Василий - ', vasiliy)
+print('Иван - ', ivan)
