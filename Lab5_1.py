@@ -1,5 +1,4 @@
-def main():
-  print(2 + 2)
+set_1 = {'White', 'Black', 'Red', 'Pink'}
+set_2 = {'Red', 'Green', 'Blue', 'Red'}
 
-if __name__ == '__main__':
-  main()
+print(set_1 - set_2)
