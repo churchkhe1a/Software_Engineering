@@ -1,8 +1,7 @@
-def print_hello():
-  print("Привет из function.py!")
+a = [-25.8, 86, 12.5, -56, 73.2, 0, 43, -91.5, 65.9, -7]
 
+a.sort()
+print("Отсортированный список:\n", a)
 
-from function import print_hello
-
-if __name__ == '__main__':
-    print_hello()
+a.pop(0) 
+print("Отсортированный список без наименьшего элемента:\n", a)
