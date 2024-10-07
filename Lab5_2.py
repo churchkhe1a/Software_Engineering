@@ -1,7 +1,5 @@
-def main():
-  result = 2 + 2
-  return result
-
-if __name__ == '__main__':
-  answer = main()
-  print(answer)
+a = frozenset('abcdefg')
+print(a)
+for i in range(1, 5):
+    a.add(i)
+print(a)
