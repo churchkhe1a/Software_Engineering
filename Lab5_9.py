@@ -1,18 +1,15 @@
-from datetime import datetime as dt
-from datetime import timedelta as td
+def superset(set_1, set_2):
+    if set_1 > set_2:
+        print(f'Объект {set_1} является чистым супермножеством')
+    elif set_1 == set_2:
+        print('Множества равны')
+    elif set_1 < set_2:
+        print(f'Объект {set_2} является чистым супермножеством')
+    else:
+        print('Супермножество не обнаружено')
 
-def main():
-    print(
-        f"Сегодня {dt.today().date()}. "
-        f"День недели - {dt.today().isoweekday()}"
-    )
-
-    n = int(input('Введите количество дней: '))
-    today = dt.today()
-    result = today + td(days=n)
-    print(
-        f"Через {n} дней будет {result.date()}. "
-        f"День недели - {result.isoweekday()}"
-    )
 if __name__ == '__main__':
-    main()
+    superset({1, 8, 3, 5}, {3, 5})
+    superset({1, 8, 3, 5}, {5, 3, 8, 1})
+    superset({3, 5}, {5, 3, 8, 1})
+    superset({90, 100}, {3, 5})
