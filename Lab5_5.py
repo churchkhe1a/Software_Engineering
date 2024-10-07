@@ -1,11 +1,6 @@
-def main(**kwargs):
-    for i in kwargs.items():
-        print(i[0], i[1])
-    print()
-    for key in kwargs:
-        print(f"{key} = {kwargs[key]}")
+def useless(lst):
+    return max(lst) / len(lst)
 
-if __name__ == '__main__' :
-    main( x= [1, 2, 3], y = [3, 3, 0], z = [2, 3, 0], q = [3, 3, 0], w = [3, 3, 0])
-    print()
-    main(**{'x': [1, 2, 3], 'y': [3, 3, 0]})
+print(useless([3, 5, 7, 3, 33]))
+print(useless([-12.5, 54, 77.3, 0, -36, 98.2, -63, 21.7, 47, -89.6]))
+print(useless([-25.8, 86, 12.5, -56, 73.2, 0, 43, -91.5, 65.9, -7]))
