@@ -1,17 +1,9 @@
-def main(x, *args):
-    one = x
-    two = sum(args)
-    three = float(len(args))
+def personal_info(name, age, company = 'unnamed'):
+    print(f"Имя: {name} Возраст: {age} Компания: {company}")
 
-    print(f"one = {one}\ntwo = {two}\nthree = {three}")
 
-    return x + sum(args) / float(len(args))
+tom = ("Григорий", 22)
+personal_info(*tom)
 
-if __name__ == '__main__':
-    result = main(5, 1, -2, 3, 4)
-    print(f"\nresult = {result}")
-
-# 1. x = 5 (первый аргумент)
-# 2. sum(args) = 1 + (-2) + 3 + 4 = 6 (сумма остальных аргументов)
-# 3. len(args) = 4 (количество остальных аргументов)
-# 4. 5 + 6 / 4 = 6.5 (результат вычисления)
+bob = ("Георгий", 41, "Yandex")
+personal_info(*bob)
