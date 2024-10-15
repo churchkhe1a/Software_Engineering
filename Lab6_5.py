@@ -1,11 +1,9 @@
-def main(**kwargs):
-    for i in kwargs.items():
-        print(i[0], i[1])
-    print()
-    for key in kwargs:
-        print(f"{key} = {kwargs[key]}")
+def tuple_sort(tpl):
+    for elm in tpl:
+        if not isinstance(elm, int):
+            return tpl
+    return tuple(sorted(tpl))
 
-if __name__ == '__main__' :
-    main( x= [1, 2, 3], y = [3, 3, 0], z = [2, 3, 0], q = [3, 3, 0], w = [3, 3, 0])
-    print()
-    main(**{'x': [1, 2, 3], 'y': [3, 3, 0]})
+if __name__ == '__main__':
+    print(tuple_sort((5, 5, 3, 1, 9)))
+    print(tuple_sort((5, 5, 2.1, '1', 9)))

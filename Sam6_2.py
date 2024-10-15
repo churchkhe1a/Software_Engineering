@@ -1,16 +1,14 @@
-import random
+def remove_first_occurrence(tpl, value):
+    lst = list(tpl)
 
-def main():
-  roll = random.randint(1, 6)
-  print(f"Выпало число: {roll}")
+    try:
+        lst.remove(value)
+    except ValueError:
+        pass
 
-  if roll in (5, 6):
-    print("Вы победили!")
-  elif roll in (3, 4):
-    print("Играем еще раз...")
-    main()
-  else:
-    print("Вы проиграли!")
+    return tuple(lst)
 
-if __name__ == "__main__":
-  main()
+
+print(remove_first_occurrence((1, 2, 3), 1))
+print(remove_first_occurrence((1, 2, 3, 1, 2, 3, 4, 5, 2, 3, 4, 2, 4, 2), 3))
+print(remove_first_occurrence((2, 4, 6, 6, 4, 2), 9))
