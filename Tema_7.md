@@ -10,11 +10,11 @@
 | Задание 3 | + | + |
 | Задание 4 | + | + |
 | Задание 5 | + | + |
-| Задание 6 | - | - |
-| Задание 7 | - | - |
-| Задание 8 | - | - |
-| Задание 9 | - | - |
-| Задание 10 | - | - |
+| Задание 6 | + | - |
+| Задание 7 | + | - |
+| Задание 8 | + | - |
+| Задание 9 | + | - |
+| Задание 10 | + | - |
 
 знак "+" - задание выполнено; знак "-" - задание не выполнено;
 
@@ -254,11 +254,27 @@ with open('rows_300.csv', 'w', encoding='utf-8', newline='') as f:
 ### Найдите в интернете любую статью (объем статьи не менее 200 слов), скопируйте ее содержимое в файл и напишите программу, которая считает количество слов в текстовом файле и определит самое часто встречающееся слово. Результатом выполнения задачи будет: скриншот файла со статьей, листинг кода, и вывод в консоль, в котором будет указана вся необходимая информация.
 
 ```python
+from collections import Counter
+import re
 
+
+def analyze_text_file(directory):
+    try:
+        with open(directory, 'r', encoding='utf-8') as file:
+            text = file.read()
+        words = re.findall(r'\b\w+\b', text.lower())
+        word_count = len(words)
+        word_frequency = Counter(words)
+        most_common_word, most_common_count = word_frequency.most_common(1)[0]
+        print(f"Количество слов в файле: {word_count}")
+        print(f"Самое часто встречающееся слово: '{most_common_word}' (встречается {most_common_count} раз)")
+    except Exception as e:
+        print(f"Произошла ошибка: {e}")
+analyze_text_file(r'C:\Users\Aleks\PycharmProjects\Tema7\bananacat.txt')
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/528c1fad-cfbb-49ec-9d1b-ea832361496e)
 
 ## Вывод
 
@@ -266,25 +282,40 @@ with open('rows_300.csv', 'w', encoding='utf-8', newline='') as f:
 ## Самостоятельная работа №2
 ### У вас появилась потребность в ведении книги расходов, посмотрев все существующие варианты вы пришли к выводу что вас ничего не устраивает и нужно все делать самому. Напишите программу для учета расходов. Программа должна позволять вводить информацию о расходах, сохранять ее в файл и выводить существующие данные в консоль. Ввод информации происходит через консоль. Результатом выполнения задачи будет: скриншот файла с учетом расходов, листинг кода, и вывод в консоль, с демонстрацией работоспособности программы.
 
-
 ```python
+def record_expense(filename):
+    while True:
+        expense_item = input("Введите название расхода (или 'отмена' для выхода): ")
+        if expense_item.lower() == 'отмена':
+            break
+        expense_amount = input("Введите данные расходов:")
 
+        with open(filename, 'a', encoding='utf-8') as file:
+            file.write(f"{expense_item}: {expense_amount}\n")
+
+    print()
+    with open(filename, 'r', encoding='utf-8') as file:
+        print(file.read())
+
+filename = 'text.txt'
+record_expense(filename)
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/4cf1069f-8312-454e-ae17-149209181292)
+![image](https://github.com/user-attachments/assets/a354c549-bbc9-422b-9388-511385a15535)
 
 ## Вывод
 
 
 ## Самостоятельная работа №3
 ### Имеется файл input.txt с текстом на латинице. Напишите программу,которая выводит следующую статистику по тексту: количество букв латинского алфавита; число слов; число строк.
-• Текст в файле:
+### • Текст в файле:
 Beautiful is better than ugly.
 Explicit is better than implicit.
 Simple is better than complex.
 Complex is better than complicated.
-• Ожидаемый результат:
+### • Ожидаемый результат:
 Input file contains:
 108 letters
 20 words
@@ -292,36 +323,60 @@ Input file contains:
 
 
 ```python
+def analyze_text(directory):
+  with open(directory, 'r', encoding='utf-8') as file:
+    lines = file.readlines()
 
+  total_letters = 0
+  total_words = 0
+  total_lines = len(lines)
+
+  for line in lines:
+    total_letters += sum(1 for c in line if c.isalpha())
+    total_words += len(line.split())
+
+  print("Input file contains:")
+  print(f"{total_letters} letters")
+  print(f"{total_words} words")
+  print(f"{total_lines} lines")
+
+analyze_text(r'C:\Users\Aleks\PycharmProjects\Tema7\text.txt')
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/542dbcde-8f5a-4a6a-835c-844f6041cc54)
 
 ## Вывод
 
 
 ## Самостоятельная работа №4
-### Напишите программу, которая получает на вход предложение, выводит его в терминал, заменяя все запрещенные слова звездочками * (количество звездочек равно количеству букв в слове). Запрещенные слова, разделенные символом пробела, хранятся в текстовом файле input.txt. Все слова в этом файле записаны в нижнем регистре. Программа должна заменить запрещенные слова, где бы они ни встречались, даже в середине другого слова. Замена производится независимо от регистра: если файл input.txt содержит запрещенное слово exam, то слова exam,
-Exam, ExaM, EXAM и exAm должны быть заменены на ****.
-• Запрещенные слова:
-hello email python the exam wor is
-• Предложение для проверки:
-Hello, world! Python IS the programming language of thE future. My
-EMAIL is....
-PYTHON is awesome!!!!
-• Ожидаемый результат:
-*****, ***ld! ****** ** *** programming language of *** future. My
-***** **....
-****** ** awesome!!!!
-
+### Напишите программу, которая получает на вход предложение, выводит его в терминал, заменяя все запрещенные слова звездочками * (количество звездочек равно количеству букв в слове). Запрещенные слова, разделенные символом пробела, хранятся в текстовом файле input.txt. Все слова в этом файле записаны в нижнем регистре. Программа должна заменить запрещенные слова, где бы они ни встречались, даже в середине другого слова. Замена производится независимо от регистра: если файл input.txt содержит запрещенное слово exam, то слова exam, Exam, ExaM, EXAM и exAm должны быть заменены на ****.
+### • Запрещенные слова: hello email python the exam wor is
+### • Предложение для проверки: Hello, world! Python IS the programming language of thE future. My EMAIL is.... PYTHON is awesome!!!!
+### • Ожидаемый результат: *****, ***ld! ****** ** *** programming language of *** future. My ***** **.... ****** ** awesome!!!!
 
 ```python
+import re
 
+def load_banned_words(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        return [line.strip() for line in file.readlines()]
+def replace_banned_words(sentence, banned_words):
+    for word in banned_words:
+        pattern = re.compile(re.escape(word), re.IGNORECASE)
+        sentence = pattern.sub('*' * len(word), sentence)
+    return sentence
+def main():
+    banned_words = load_banned_words('text.txt')
+    sentence = "Hello, world! Python IS the programming language of thE future. My EMAIL is.... PYTHON is awesome!!!!"
+    result = replace_banned_words(sentence, banned_words)
+    print("Результат:", result)
+if __name__ == "__main__":
+    main()
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/2a6a46b2-2a51-4a40-9df9-bf90c61f778e)
 
 ## Вывод
 
@@ -332,11 +387,27 @@ PYTHON is awesome!!!!
 
 
 ```python
+from collections import Counter
 
+def top_10_words(file_path):
+
+  with open(file_path, 'r', encoding='utf-8') as f:
+    text = f.read().lower()
+    words = text.split()
+    word_counts = Counter(words)
+    top_10 = word_counts.most_common(10)
+    return top_10
+
+file_path = 'text.txt'
+top_words = top_10_words(file_path)
+
+print("10 самых частых слов:")
+for word, count in top_words:
+  print(f"{word}: {count}")
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/4edb0bde-6cfc-440d-b33c-a15fa015a8cc)
 
 ## Вывод
 
