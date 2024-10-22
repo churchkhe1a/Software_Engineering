@@ -25,11 +25,12 @@
 ### Составьте текстовый файл и положите его в одну директорию с программой на Python. Текстовый файл должен состоять минимум из двух строк. 
 
 ```python
-
+Sometimes I think
+But then I forget
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/2618f385-82ee-490b-8128-d8b72a90aa81)
 
 ## Вывод
 
@@ -38,10 +39,13 @@
 ### Напишите программу, которая выведет только первую строку из вашего файла, при этом используйте конструкцию open()/close().
 
 ```python
-
+f = open('input.txt', 'r')
+print(f.readline())
+f.close()
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/0a42c512-02ab-4555-bba0-88e05400d9ee)
 
 
 ## Вывод
