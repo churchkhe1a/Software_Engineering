@@ -1,17 +1,17 @@
-def register_visit(visit_record):
-    name, surname, cabinet_number, time = visit_record.split()
-    cabinet_number = int(cabinet_number)
-    visit_log = {
-        cabinet_number: [
-            {
-                "name": name,
-                "surname": surname,
-                "time": time
-            }
-        ]
-    }
-    return visit_log
+from collections import Counter
 
-visit_record = "Иван Иванов 101 14:30"
-visit_log = register_visit(visit_record)
-print(visit_log)
+def top_10_words(file_path):
+
+  with open(file_path, 'r', encoding='utf-8') as f:
+    text = f.read().lower()
+    words = text.split()
+    word_counts = Counter(words)
+    top_10 = word_counts.most_common(10)
+    return top_10
+
+file_path = 'text.txt'
+top_words = top_10_words(file_path)
+
+print("10 самых частых слов:")
+for word, count in top_words:
+  print(f"{word}: {count}")
