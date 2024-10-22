@@ -1,11 +1,18 @@
-def count_it(sequence):
+def analyze_text(directory):
+  with open(directory, 'r', encoding='utf-8') as file:
+    lines = file.readlines()
 
-    num_frequency = {int(item): sequence.count(item) for item in sequence}
+  total_letters = 0
+  total_words = 0
+  total_lines = len(lines)
 
-    sorted_num_frequency = sorted(num_frequency.items(), key=lambda element: element[1])
+  for line in lines:
+    total_letters += sum(1 for c in line if c.isalpha())
+    total_words += len(line.split())
 
-    return dict(sorted_num_frequency[-3:])
+  print("Input file contains:")
+  print(f"{total_letters} letters")
+  print(f"{total_words} words")
+  print(f"{total_lines} lines")
 
-print(count_it('1111111111222'))
-print(count_it('123456789012133288776655353535353441111'))
-print(count_it('007767757744331166554444'))
+analyze_text(r'C:\Users\Aleks\PycharmProjects\Tema7\text.txt')
