@@ -1,14 +1,16 @@
-def remove_first_occurrence(tpl, value):
-    lst = list(tpl)
+def record_expense(filename):
+    while True:
+        expense_item = input("Введите название расхода (или 'отмена' для выхода): ")
+        if expense_item.lower() == 'отмена':
+            break
+        expense_amount = input("Введите данные расходов:")
 
-    try:
-        lst.remove(value)
-    except ValueError:
-        pass
+        with open(filename, 'a', encoding='utf-8') as file:
+            file.write(f"{expense_item}: {expense_amount}\n")
 
-    return tuple(lst)
+    print()
+    with open(filename, 'r', encoding='utf-8') as file:
+        print(file.read())
 
-
-print(remove_first_occurrence((1, 2, 3), 1))
-print(remove_first_occurrence((1, 2, 3, 1, 2, 3, 4, 5, 2, 3, 4, 2, 4, 2), 3))
-print(remove_first_occurrence((2, 4, 6, 6, 4, 2), 9))
+filename = 'text.txt'
+record_expense(filename)
