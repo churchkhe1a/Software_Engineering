@@ -1,11 +1,21 @@
-def count_it(sequence):
+class Book:
+ def __init__(self, title, author, genre, pages, publication_year):
+  self.title = title
+  self.author = author
+  self.genre = genre
+  self.pages = pages
+  self.publication_year = publication_year
 
-    num_frequency = {int(item): sequence.count(item) for item in sequence}
+ def get_book_info(self):
+  print(f"Название: {self.title}\nАвтор: {self.author}\nЖанр: {self.genre}\nКоличество страниц: {self.pages}\nГод издания: {self.publication_year}")
 
-    sorted_num_frequency = sorted(num_frequency.items(), key=lambda element: element[1])
+class ClassicLiterature(Book):
+ def __init__(self, title, author, genre, pages, publication_year, era):
+  super().__init__(title, author, genre, pages, publication_year)
+  self.era = era
 
-    return dict(sorted_num_frequency[-3:])
+ def get_classic_info(self):
+  print(f"Название: {self.title}\nАвтор: {self.author}\nЖанр: {self.genre}\nКоличество страниц: {self.pages}\nГод издания: {self.publication_year}\nЭпоха: {self.era}")
 
-print(count_it('1111111111222'))
-print(count_it('123456789012133288776655353535353441111'))
-print(count_it('007767757744331166554444'))
+war_and_peace = ClassicLiterature("Война и мир", "Лев Толстой", "Роман", 1225, 1869, "XIX век")
+war_and_peace.get_classic_info()
