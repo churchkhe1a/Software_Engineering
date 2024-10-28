@@ -1,12 +1,11 @@
-from pprint import pprint
+class Car: # определение класса Car
+  def __init__(self, make, model): # метод инициализации класса (конструктор)
+    self.make = make # создание атрибута make и присваивание ему значения аргумента make
+    self.model = model # создание атрибута model и присваивание ему значения аргумента model
 
-my_dict = {'first': 'so easy'}
+  def drive(self): # метод класса для имитации вождения
+    print(f"Driving the {self.make} {self.model}") # вывод сообщения о вождении автомобиля
 
-
-def dict_maker(**kwargs):
-    my_dict.update(**kwargs)
-
-
-dict_maker(a1 = 1, a2 = 20, a3 = 54, a4 = 13)
-dict_maker(name = 'Михаил', age = 31, weight = 70, eyes_color = 'blue')
-pprint(my_dict)
+my_car = Car("Toyota", "Corolla") # создание объекта класса Car с именем my_car,
+                 # передавая в конструктор значения "Toyota" и "Corolla" для атрибутов make и model
+my_car.drive() # вызов метода drive() для объекта my_car
