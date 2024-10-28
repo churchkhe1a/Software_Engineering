@@ -35,6 +35,7 @@ my_car = Car("Toyota", "Corolla") # создание объекта класса
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/9aa190cb-f44f-4337-a44e-2af0f613cf87)
 
 
 ## Вывод
@@ -64,6 +65,7 @@ my_car.drive() # вызов метода drive() для объекта my_car
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/6a52bb14-d683-4b97-a00e-eeeb8df1bc2f)
 
 
 ## Вывод
@@ -102,6 +104,7 @@ my_electric_car.charge() # вызов метода charge() для объект�
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/0a8ccf59-a868-4755-9de1-1bb7250af57a)
 
 
 ## Вывод
@@ -126,6 +129,7 @@ my_car.drive() # вызов метода drive() для объекта my_car
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/39b02f42-4275-4110-b1ae-b34a0421d3f3)
 
 ## Вывод
 1. `my_car = Car("Toyota", "Corolla")`: Создает объект класса `Car` с именем `my_car`, передавая значения "Toyota" и "Corolla".
@@ -162,6 +166,7 @@ for shape in shapes: # цикл for для перебора объектов в 
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/e9bfd28a-f018-45ef-86e3-4da18d560974)
 
 
 ## Вывод
@@ -185,6 +190,7 @@ print(my_book.get_info())
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/4d093306-99b7-45ee-8052-e7bfb08d2d4c)
 
 
 ## Вывод
@@ -218,6 +224,7 @@ my_book.get_book_info()
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/ca4cbde0-9e38-4962-ba22-3787f1d58bd2)
 
 
 ## Вывод
@@ -252,6 +259,7 @@ war_and_peace.get_classic_info()
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/e8aeb56e-4ea9-4522-9e5b-b9eec3ed3994)
 
 
 ## Вывод
@@ -323,6 +331,7 @@ war_and_peace.get_classic_info()
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/2debc862-f0e7-46cd-a0c9-4dc429a03f19)
 
 
 ## Вывод
@@ -420,6 +429,7 @@ for book in books:
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/8cdd33fb-a424-4ae8-8b70-d79c4f6cbb18)
 
 
 ## Вывод
