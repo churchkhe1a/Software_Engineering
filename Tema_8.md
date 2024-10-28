@@ -326,30 +326,20 @@ war_and_peace.get_classic_info()
 
 
 ## Вывод
+1. Приватные атрибуты:
+  - Все атрибуты (поле) классов `Book` и `ClassicLiterature` объявлены с префиксом подчеркивания (_), например, `_title`, `_author`, `_era`. Это соглашение в Python обозначает, что эти атрибуты считаются приватными, т.е. доступными только изнутри самого класса.
+  - Внешний код не может напрямую обращаться к этим атрибутам.
 
+2. Геттеры и сеттеры:
+  - Для каждого приватного атрибута определены геттеры (методы типа `get_title`, `get_author`, `get_era`) и сеттеры (методы типа `set_title`, `set_author`, `set_era`).
+  - Геттеры предоставляют возможность получения значения приватного атрибута, а сеттеры - изменения его значения.
   
 ## Самостоятельная работа №5
 ### 
 
 
 ```python
-def register_visit(visit_record):
-    name, surname, cabinet_number, time = visit_record.split()
-    cabinet_number = int(cabinet_number)
-    visit_log = {
-        cabinet_number: [
-            {
-                "name": name,
-                "surname": surname,
-                "time": time
-            }
-        ]
-    }
-    return visit_log
 
-visit_record = "Иван Иванов 101 14:30"
-visit_log = register_visit(visit_record)
-print(visit_log)
 ```
 
 ### Результат.
