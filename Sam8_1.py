@@ -1,8 +1,11 @@
-user_input = input("Введите последовательность чисел, разделенных пробелом: ")
+class Book:
+    def __init__(self, title, author, genre):
+        self.title = title
+        self.author = author
+        self.genre = genre
 
-numbers_list = [int(x) for x in user_input.split()]
+    def get_info(self):
+        return f"Название: {self.title}\nАвтор: {self.author}\nЖанр: {self.genre}"
 
-numbers_tuple = tuple(numbers_list)
-
-print("Список: ", numbers_list)
-print("Кортеж: ", numbers_tuple)
+my_book = Book("Война и мир", "Лев Толстой", "Роман")
+print(my_book.get_info())
