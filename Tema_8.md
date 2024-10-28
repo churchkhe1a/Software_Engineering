@@ -35,8 +35,7 @@ my_car = Car("Toyota", "Corolla") # создание объекта класса
 ```
 
 ### Результат.
-![image](https://github.com/user-attachments/assets/9aa190cb-f44f-4337-a44e-2af0f613cf87)
-
+![image](https://github.com/user-attachments/assets/4ed5bc7d-b0b3-4bf8-93a1-c5bde69be9e3)
 
 ## Вывод
 1. `def __init__(self, make, model):`: Определяет специальный метод `__init__`, который является конструктором класса. Он вызывается автоматически при создании нового объекта этого класса.
@@ -65,8 +64,7 @@ my_car.drive() # вызов метода drive() для объекта my_car
 ```
 
 ### Результат.
-![image](https://github.com/user-attachments/assets/6a52bb14-d683-4b97-a00e-eeeb8df1bc2f)
-
+![image](https://github.com/user-attachments/assets/5597b10d-a2f1-4b3b-8808-4713cdce1e92)
 
 ## Вывод
 1. Добавлен метод `drive()`, который имитирует действие "езда" и выводит сообщение.
@@ -104,8 +102,7 @@ my_electric_car.charge() # вызов метода charge() для объект�
 ```
 
 ### Результат.
-![image](https://github.com/user-attachments/assets/0a8ccf59-a868-4755-9de1-1bb7250af57a)
-
+![image](https://github.com/user-attachments/assets/9a007b96-9f0a-4379-b177-dbb08848bc37)
 
 ## Вывод
 Этот код демонстрирует как можно использовать наследование для создания новых классов, расширяющих функциональность существующих классов. Он также демонстрирует как методы могут вести себя по-разному в разных классах (полиморфизм).
@@ -129,7 +126,7 @@ my_car.drive() # вызов метода drive() для объекта my_car
 ```
 
 ### Результат.
-![image](https://github.com/user-attachments/assets/39b02f42-4275-4110-b1ae-b34a0421d3f3)
+![image](https://github.com/user-attachments/assets/0b96094d-f599-4256-b56d-2b19746f7f67)
 
 ## Вывод
 1. `my_car = Car("Toyota", "Corolla")`: Создает объект класса `Car` с именем `my_car`, передавая значения "Toyota" и "Corolla".
@@ -166,8 +163,7 @@ for shape in shapes: # цикл for для перебора объектов в 
 ```
 
 ### Результат.
-![image](https://github.com/user-attachments/assets/e9bfd28a-f018-45ef-86e3-4da18d560974)
-
+![image](https://github.com/user-attachments/assets/32f4d227-42db-4a13-a3e0-2b3cfc98bc0b)
 
 ## Вывод
 Код демонстрирует как один и тот же метод (area()) может использоваться для разных объектов с разными результатами (полиморфизм) и как абстрактные классы могут быть использованы для определения общего интерфейcа для дочерних классов.
@@ -190,8 +186,7 @@ print(my_book.get_info())
 ```
 
 ### Результат.
-![image](https://github.com/user-attachments/assets/4d093306-99b7-45ee-8052-e7bfb08d2d4c)
-
+![image](https://github.com/user-attachments/assets/b37134e1-649e-4836-b2a6-130f10298fda)
 
 ## Вывод
 1. `class Book:`: Определяет класс Book для представления книги.
@@ -224,8 +219,7 @@ my_book.get_book_info()
 ```
 
 ### Результат.
-![image](https://github.com/user-attachments/assets/ca4cbde0-9e38-4962-ba22-3787f1d58bd2)
-
+![image](https://github.com/user-attachments/assets/c167719f-6c84-4691-8bc5-cfeeeafdc8c5)
 
 ## Вывод
 1. Атрибут: `publication_year` для хранения года издания книги.
@@ -259,8 +253,7 @@ war_and_peace.get_classic_info()
 ```
 
 ### Результат.
-![image](https://github.com/user-attachments/assets/e8aeb56e-4ea9-4522-9e5b-b9eec3ed3994)
-
+![image](https://github.com/user-attachments/assets/d38e342b-c341-4241-a4f7-cad0dc8bea74)
 
 ## Вывод
 1. Создан класс `ClassicLiterature`, который наследует от `Book`. 
@@ -331,8 +324,7 @@ war_and_peace.get_classic_info()
 ```
 
 ### Результат.
-![image](https://github.com/user-attachments/assets/2debc862-f0e7-46cd-a0c9-4dc429a03f19)
-
+![image](https://github.com/user-attachments/assets/da49f4df-a0ca-4399-b851-bd839c0ca095)
 
 ## Вывод
 1. Приватные атрибуты:
@@ -429,8 +421,7 @@ for book in books:
 ```
 
 ### Результат.
-![image](https://github.com/user-attachments/assets/8cdd33fb-a424-4ae8-8b70-d79c4f6cbb18)
-
+![image](https://github.com/user-attachments/assets/1c217865-b1f4-4c1a-9863-69461bdecdc9)
 
 ## Вывод
 В коде реализован полиморфизм через:
