@@ -1,14 +1,13 @@
-def remove_first_occurrence(tpl, value):
-    lst = list(tpl)
+class Book:
+ def __init__(self, title, author, genre, pages, publication_year):
+  self.title = title
+  self.author = author
+  self.genre = genre
+  self.pages = pages
+  self.publication_year = publication_year
 
-    try:
-        lst.remove(value)
-    except ValueError:
-        pass
+ def get_book_info(self):
+  print(f"Название: {self.title}\nАвтор: {self.author}\nЖанр: {self.genre}\nКоличество страниц: {self.pages}\nГод издания: {self.publication_year}")
 
-    return tuple(lst)
-
-
-print(remove_first_occurrence((1, 2, 3), 1))
-print(remove_first_occurrence((1, 2, 3, 1, 2, 3, 4, 5, 2, 3, 4, 2, 4, 2), 3))
-print(remove_first_occurrence((2, 4, 6, 6, 4, 2), 9))
+my_book = Book("Война и мир", "Лев Толстой", "Роман", 1225, 1869)
+my_book.get_book_info()
