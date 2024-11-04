@@ -1,9 +1,18 @@
-def personal_info(name, age, company = 'unnamed'):
-    print(f"Имя: {name} Возраст: {age} Компания: {company}")
+class Mammal:
+    className = 'Mammal'
 
 
-tom = ("Григорий", 22)
-personal_info(*tom)
+class Dog(Mammal):
+    species = 'canine'
+    sounds = 'wow'
 
-bob = ("Георгий", 41, "Yandex")
-personal_info(*bob)
+
+class Cat(Mammal):
+    species = 'feline'
+    sounds = 'meow'
+
+
+dog = Dog()
+print(f"Dog is {dog.className}, but they say {dog.sounds}")
+cat = Cat()
+print(f"Cat is {cat.className}, but they say {cat.sounds}")
