@@ -1,9 +1,20 @@
-def tuple_sort(tpl):
-    for elm in tpl:
-        if not isinstance(elm, int):
-            return tpl
-    return tuple(sorted(tpl))
+class Russian:
+    @staticmethod
+    def greeting():
+        print("Привет")
 
-if __name__ == '__main__':
-    print(tuple_sort((5, 5, 3, 1, 9)))
-    print(tuple_sort((5, 5, 2.1, '1', 9)))
+
+class English:
+    @staticmethod
+    def greeting():
+        print("Hello")
+
+
+def greet(language):
+    language.greeting()
+
+
+ivan = Russian()
+greet(ivan)
+john = English()
+greet(john)
