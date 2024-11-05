@@ -226,12 +226,46 @@ greet(john)
 4) Создайте метод `grow()`, который будет переводить томат на следующую стадию созревания
 5) Создайте метод `is_ripe()`, который будет проверять, что томат созрел
 
+```python
+class Tomato:
+    states = ["отсутствует", "цветение", "зеленый", "красный"]  # Стадии созревания
+
+    def __init__(self, index):
+        self._index = index  # Индекс томата, приватное свойство
+        self._state = self.states[0] # Начальная стадия созревания, приватное свойство
+
+    def grow(self):
+        current_state_index = self.states.index(self._state)
+        if current_state_index < len(self.states) - 1:
+            self._state = self.states[current_state_index + 1]
+
+    def is_ripe(self):
+        return self._state == "красный"
+```
+
 Класс `TomatoBush`:
 1) Создайте класс `TomatoBush`
 2) Определите метод `__init__()`, который будет принимать в качестве параметра количество томатов и на его основе будет создавать список объектов класса `Tomato`. Данный список будет храниться внутри динамического свойства `tomatoes`
 3) Создайте метод `grow_all()`, который будет переводить все объекты из списка томатов на следующий этап созревания
 4) Создайте метод `all_are_ripe()`, который будет возвращать `True`, если все томаты из списка стали спелыми.
 5) Создайте метод `give_away_all()`, который будет чистить список томатов после сбора урожая
+
+```python
+class TomatoBush:
+
+    def __init__(self, num_tomatoes):
+        self.tomatoes = [Tomato(i) for i in range(num_tomatoes)] # Список томатов
+
+    def grow_all(self):
+        for tomato in self.tomatoes:
+            tomato.grow()
+
+    def all_are_ripe(self):
+        return all([tomato.is_ripe() for tomato in self.tomatoes])
+
+    def give_away_all(self):
+        self.tomatoes = []
+```
 
 Класс `Gardener`:
 1) Создайте класс `Gardener`
@@ -240,12 +274,61 @@ greet(john)
 4) Создайте метод `harvest()`, который проверяет, все ли плоды созрели. Если все, то садовник собирает урожай. Если нет, то метод печатает предупреждение
 5) Создайте статический метод `knowledge_base()`, который выведет в консоль справку по садоводству
 
+```python
+class Gardener:
+
+    def __init__(self, name, plant):
+        self.name = name  # Имя садовника, публичное свойство
+        self._plant = plant # Объект TomatoBush, растение, приватное свойство
+
+    def work(self):
+        self._plant.grow_all()
+
+    def harvest(self):
+        if self._plant.all_are_ripe():
+            self._plant.give_away_all()
+            print(f"Садовник {self.name} собрал урожай!")
+        else:
+            print(f"Садовник {self.name}: Помидоры еще не созрели!")
+
+    @staticmethod
+    def knowledge_base():
+        print("Справка по садоводству: \n"
+              "Помидоры растут постепенно, от отсутствия до красного цвета.\n"
+              "Ухаживайте за ними и они порадуют вас вкусным урожаем.")
+```
+
 Тесты:
 1) Вызовите справку по садоводству
+
+```python
+
+```
+
 2) Создайте объекты классов `TomatoBush` и `Gardener`
+
+```python
+
+```
+
 3) Используя объект класса `Gardener`, поухаживайте за кустом с помидорами
+
+```python
+
+```
+
 4) Попробуйте собрать урожай, когда томаты еще не дозрели. Продолжайте ухаживать за ними
+
+```python
+
+```
+
 5) Соберите урожай
+
+```python
+
+```
+
 Результатом работы вашей программы будет листинг кода с подробными комментариями и скриншоты выполенния всех тестов.
 
 ## Общие выводы по теме
