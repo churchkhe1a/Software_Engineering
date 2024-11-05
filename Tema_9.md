@@ -1,5 +1,5 @@
-# Тема 8. Введение в ООП
-Отчет по Теме #8 выполнил(а):
+# Тема 9. Концепции и принципы ООП.
+Отчет по Теме #9 выполнил(а):
 - Обласова Александра Владимировна
 - ИВТ-22-2
 
@@ -22,410 +22,430 @@
 - к.э.н., доцент Панов М.А.
 
 ## Лабораторная работа №1
-### Создайте класс “Car” с атрибутами производитель и модель. Создайте объект этого класса. Напишите комментарии для кода, объясняющие его работу. Результатом выполнения задания будет листинг кода с комментариями.
+### Допустим, что вы решили оригинально и немного странно познакомится с человеком. Для этого у вас должен быть написан свой класс на Python, который будет проверять угадал ваше имя человек или нет. Для этого создайте класс, указав в свойствах только имя. Дальше создайте функцию __init__(), а в ней сделайте проверку на то угадал человек ваше имя или нет. Также можете проверить что будет, если в этой функции указав атрибут, который не указан в вашем классе, например, попробуйте вызвать фамилию.
 
 ```python
-class Car: # определение класса Car
-  def __init__(self, make, model): # метод инициализации класса (конструктор)
-    self.make = make # создание атрибута make и присваивание ему значения аргумента make
-    self.model = model # создание атрибута model и присваивание ему значения аргумента model
+class Sasha:
+    __slots__ = ['name']
 
-my_car = Car("Toyota", "Corolla") # создание объекта класса Car с именем my_car,
-                  # передавая в конструктор значения "Toyota" и "Corolla" для атрибутов make и model
+    def __init__(self, name):
+        if name == 'Саша':
+            self.name = f"Да, я {name}"
+        else:
+            self.name = f"Я не {name}, а Саша"
+
+person1 = Sasha('Иван')
+person2 = Sasha('Саша')
+print(person1.name)
+print(person2.name)
+person2.surname = 'Обласова'
 ```
 
 ### Результат.
 
 
 ## Вывод
-1. `def __init__(self, make, model):`: Определяет специальный метод `__init__`, который является конструктором класса. Он вызывается автоматически при создании нового объекта этого класса.
-2. `self` - ссылка на создаваемый объект.
-3. `make` и `model` - параметры, которые будут использоваться для инициализации атрибутов.
-4. `self.make = make`: Создается атрибут make объекта класса `Car` и ему присваивается значение параметра `make`.
-5. `self.model = model`: Создается атрибут model объекта класса `Car` и ему присваивается значение параметра `model`.
-6. `my_car = Car("Toyota", "Corolla")`: Создается объект класса `Car` с именем `my_car`. При создании объекта в конструктор передаются значения "Toyota" и "Corolla" для атрибутов `make` и `model`.
-Этот код демонстрирует создание класса в Python. Класс - это blueprint для создания объектов с определенными атрибутами (характеристиками). В этом случае мы создали класс для представления автомобиля с атрибутами "марка" и "модель".
+1. `slots = ['name']`: Этот атрибут класса `slots` указывает Python, что в классе `Sasha` можно использовать только атрибут `name`.
+2. `init(self, name)`: Конструктор класса. Он принимает имя человека как аргумент и сравнивает его со своим именем. 
+3. `person2.surname = 'Обласова'` - попытка присвоить `person2` атрибут `surname`. Эта строка вызовет ошибку `AttributeError: 'Sasha' object has no attribute 'surname'`, поскольку `Sasha` не определяет атрибут `surname`.
 
 ## Лабораторная работа №2
-### Дополните код из первого задания, добавив в него атрибуты и методы класса, заставьте машину “поехать”. Напишите комментарии для кода, объясняющие его работу. Результатом выполнения задания будет листинг кода с комментариями и получившийся вывод в консоль.
+### Вам дали важное задание, написать продавцу мороженого программу, которая будет писать добавили ли топпинг в мороженое и цену после возможного изменения. Для этого вам нужно написать класс, в котором будет определяться изменили ли состав мороженого или нет. В этом классе реализуйте метод, выводящий на печать «Мороженое с {ТОППИНГ}» в случае наличия добавки, а иначе отобразится следующая фраза: «Обычное мороженое». При этом программа должна воспринимать как топпинг только атрибуты типа string.
 
 ```python
-class Car: # определение класса Car
-  def __init__(self, make, model): # метод инициализации класса (конструктор)
-    self.make = make # создание атрибута make и присваивание ему значения аргумента make
-    self.model = model # создание атрибута model и присваивание ему значения аргумента model
+class Icecream:
+    def __init__(self, ingredient=None):
+        if isinstance(ingredient, str):
+            self.ingredient = ingredient
+        else:
+            self.ingredient = None
 
-  def drive(self): # метод класса для имитации вождения
-    print(f"Driving the {self.make} {self.model}") # вывод сообщения о вождении автомобиля
-
-my_car = Car("Toyota", "Corolla") # создание объекта класса Car с именем my_car,
-                 # передавая в конструктор значения "Toyota" и "Corolla" для атрибутов make и model
-my_car.drive() # вызов метода drive() для объекта my_car
+    def composition(self):
+        if self.ingredient:
+            print(f"Мороженое с {self.ingredient}")
+        else:
+            print('Обычное мороженое')
+            
+icecream = Icecream()
+icecream.composition()
+icecream = Icecream('шоколадом')
+icecream.composition()
+icecream = Icecream(5)
+icecream.composition()
 ```
 
 ### Результат.
 
 
 ## Вывод
-1. Добавлен метод `drive()`, который имитирует действие "езда" и выводит сообщение.
-2. Вызов метода `drive()` для объекта `my_car` заставляет машину "поехать".
-Код демонстрирует работу класса с методом, который имитирует действие.
+1. `__init__(self, ingredient=None)`: Конструктор класса. Он принимает опциональный аргумент `ingredient`.
+2. `isinstance(ingredient, str)`: Проверяет, является ли `ingredient` строкой. Если да, то присваивает значение `ingredient` атрибуту `self.ingredient`.
+3. `self.ingredient = None`: Если `ingredient` не строка, то присваивает `None` атрибуту `self.ingredient`.
+4. `composition(self)`: Метод для вывода состава мороженого.
+5. `if self.ingredient:`: Проверяет, есть ли значение в `self.ingredient`.
 
 ## Лабораторная работа №3
-### Создайте новый класс “ElectricCar” с методом “charge” и атрибутом емкость батареи. Реализуйте его наследование от класса, созданного в первом задании. Заставьте машину поехать, а потом заряжаться. Напишите комментарии для кода, объясняющие его работу. Результатом выполнения задания будет листинг кода с комментариями и получившийся вывод в консоль.
+### Петя – начинающий программист и на занятиях ему сказали реализовать икапсу…что-то. А вы хороший друг Пети и ко всему прочему прекрасно знаете, что икапсу…что-то – это инкапсуляция, поэтому решаете помочь вашему другу с написанием класса с инкапсуляцией. Ваш класс будет не просто инкапсуляцией, а классом с сеттером, геттером и деструктором. После написания класса вам необходимо продемонстрировать что все написанные вами функции работают. Также вас необходимо объяснить Пете почему на скриншоте ниже в консоли выводится ошибка.
 
 ```python
-class Car: # определение класса Car (базовый класс)
-  def __init__(self, make, model): # метод инициализации класса (конструктор)
-    self.make = make # создание атрибута make и присваивание ему значения аргумента make
-    self.model = model # создание атрибута model и присваивание ему значения аргумента model
+class MyClass:
+    def __init__(self, value):
+        self._value = value
 
-  def drive(self): # метод класса для имитации вождения
-    print(f"Driving the {self.make} {self.model}") # вывод сообщения о вождении автомобиля
+    def set_value(self, value):
+        self._value = value
 
-my_car = Car("Toyota", "Corolla") # создание объекта класса Car с именем my_car,
-                 # передавая в конструктор значения "Toyota" и "Corolla" для атрибутов make и model
-my_car.drive() # вызов метода drive() для объекта my_car
+    def get_value(self):
+        if hasattr(self, '_value'):
+            return self._value
+        else:
+            raise AttributeError("Значение удалено")
 
-class ElectricCar(Car): # определение класса ElectricCar, наследующего от класса Car
-  def __init__(self, make, model, battery_capacity): # метод инициализации класса ElectricCar
-    super().__init__(make, model) # вызов конструктора родительского класса Car для инициализации атрибутов make и model
-    self.battery_capacity = battery_capacity # создание атрибута battery_capacity и присваивание ему значения аргумента battery_capacity
+    def del_value(self):
+        del self._value
 
-  def charge(self): # метод класса для имитации зарядки
-    print(f"Charging the {self.make} {self.model} with {self.battery_capacity} kWh") # вывод сообщения о зарядке автомобиля
+    value = property(get_value, set_value, del_value, "Свойство value")
 
-my_electric_car = ElectricCar("Tesla", "Model S", 75) # создание объекта класса ElectricCar с именем my_electric_car,
-                          # передавая в конструктор значения "Tesla", "Model S" и 75 для атрибутов make, model и battery_capacity
-my_electric_car.drive() # вызов метода drive() (наследованного от класса Car) для объекта my_electric_car
-my_electric_car.charge() # вызов метода charge() для объекта my_electric_car
+
+obj = MyClass(42)
+print(obj.value)
+obj.set_value(45)
+print(obj.value)
+obj.set_value(100)
+print(obj.value)
+obj.del_value()
+try:
+    print(obj.value)
+except AttributeError as e:
+    print(e)
 ```
 
 ### Результат.
 
 
 ## Вывод
-Этот код демонстрирует как можно использовать наследование для создания новых классов, расширяющих функциональность существующих классов. Он также демонстрирует как методы могут вести себя по-разному в разных классах (полиморфизм).
+Ошибка `AttributeError: 'MyClass' object has no attribute 'value'` возникает, потому что в коде происходит обращение к несуществующему атрибуту `value`. После того как был вызван `del_value()`, атрибут `value` был удален, но в коде происходит попытка его вывода.
 
 ## Лабораторная работа №4
-### Реализуйте инкапсуляцию для класса, созданного в первом задании. Создайте защищенный атрибут производителя и приватный атрибут модели. Вызовите защищенный атрибут и заставьте машину поехать. Напишите комментарии для кода, объясняющие его работу. Результатом выполнения задания будет листинг кода с комментариями и получившийся вывод в консоль.
+### Вам прекрасно известно, что кошки и собаки являются млекопитающими, но компьютер этого не понимает, поэтому вам нужно написать три класса: Кошки, Собаки, Млекопитающие. И при помощи “наследования” объяснить компьютеру что кошки и собаки – это млекопитающие. Также добавьте какой-нибудь свой атрибут для кошек и собак, чтобы показать, что они чем-то отличаются друг от друга.
 
 ```python
-class Car: # определение класса Car
-  def __init__(self, make, model): # метод инициализации класса (конструктор)
-    self._make = make # создание атрибута _make (защищенного) и присваивание ему значения аргумента make
-    self.__model = model # создание атрибута __model (частного) и присваивание ему значения аргумента model
+class Mammal:
+    className = 'Mammal'
 
-  def drive(self): # метод класса для имитации вождения
-    print(f"Driving the {self._make} {self.__model}") # вывод сообщения о вождении автомобиля
+class Dog(Mammal):
+    species = 'canine'
+    sounds = 'wow'
 
-my_car = Car("Toyota", "Corolla") # создание объекта класса Car с именем my_car,
-                 # передавая в конструктор значения "Toyota" и "Corolla" для атрибутов _make и __model
-print(my_car._make) # вывод значения атрибута _make объекта my_car (доступен извне класса)
-my_car.drive() # вызов метода drive() для объекта my_car
+class Cat(Mammal):
+    species = 'feline'
+    sounds = 'meow'
+
+dog = Dog()
+print(f"Dog is {dog.className}, but they say {dog.sounds}")
+cat = Cat()
+print(f"Cat is {cat.className}, but they say {cat.sounds}")
 ```
 
 ### Результат.
 
 ## Вывод
-1. `my_car = Car("Toyota", "Corolla")`: Создает объект класса `Car` с именем `my_car`, передавая значения "Toyota" и "Corolla".
-2. `my_car.drive()`: Вызывает метод `drive()`, который выводит сообщение о вождении автомобиля.
-Код демонстрирует, как реализовать инкапсуляцию в Python, используя соглашения о наименовании для создания защищенных и приватных атрибутов.
+1. `className = 'Mammal'`: Устанавливает атрибут `className` для класса `Mammal`.
+2. `species = 'canine'`: Добавляет атрибут для определения вида животного.
+3. `sounds = 'wow'`: Добавляет атрибут для звуков, которые издает животное.
+4. `species = 'feline'`: Добавляет атрибут для определения вида животного.
+5. `sounds = 'meow'`: Добавляет атрибут для звуков, которые издает животное.
 
 ## Лабораторная работа №5
-### Реализуйте полиморфизм создав основной (общий) класс “Shape”, а также еще два класса “Rectangle” и “Circle”. Внутри последних двух классов реализуйте методы для подсчета площади фигуры. После этого создайте массив с фигурами, поместите туда круг и прямоугольник, затем при помощи цикла выведите их площади. Напишите комментарии для кода, объясняющие его работу. Результатом выполнения задания будет листинг кода с комментариями и получившийся вывод в консоль
+### На разных языках здороваются по-разному, но суть остается одинаковой, люди друг с другом здороваются. Давайте вместе с вами реализуем программу с полиморфизмом, которая будет описывать всю суть первого предложения задачи. Для этого мы можем выбрать два языка, например, русский и английский и написать для них отдельные классы, в которых будет в виде атрибута слово, которым здороваются на этих языках. А также напишем функцию, которая будет выводить информацию о том, как на этих языках здороваются. Заметьте, что для решения поставленной задачи мы использовали декоратор @staticmethod, поскольку нам не нужны обязательные параметры-ссылки вроде self.
 
 ```python
-class Shape: # определение абстрактного класса Shape (базовый класс)
-  def area(self): # метод area, который должен быть переопределен в дочерних классах
-    pass # пока что ничего не делает
+class Russian:
+    @staticmethod
+    def greeting():
+        print("Привет")
 
-class Rectangle(Shape): # определение класса Rectangle, наследующего от класса Shape
-  def __init__(self, width, height): # метод инициализации класса Rectangle
-    self.width = width # создание атрибута width и присваивание ему значения аргумента width
-    self.height = height # создание атрибута height и присваивание ему значения аргумента height
 
-  def area(self): # переопределение метода area для класса Rectangle
-    return self.width * self.height # возвращает площадь прямоугольника
+class English:
+    @staticmethod
+    def greeting():
+        print("Hello")
 
-class Circle(Shape): # определение класса Circle, наследующего от класса Shape
-  def __init__(self, radius): # метод инициализации класса Circle
-    self.radius = radius # создание атрибута radius и присваивание ему значения аргумента radius
 
-  def area(self): # переопределение метода area для класса Circle
-    return 3.14 * self.radius * self.radius # возвращает площадь круга
+def greet(language):
+    language.greeting()
 
-shapes = [Rectangle(5, 4), Circle(3)] # создание списка shapes, содержащего объекты классов Rectangle и Circle
 
-for shape in shapes: # цикл for для перебора объектов в списке shapes
-  print(f"The area is: {shape.area()}") # вывод площади каждого объекта с использованием метода area()
+ivan = Russian()
+greet(ivan)
+john = English()
+greet(john)
 ```
 
 ### Результат.
 
 
 ## Вывод
-Код демонстрирует как один и тот же метод (area()) может использоваться для разных объектов с разными результатами (полиморфизм) и как абстрактные классы могут быть использованы для определения общего интерфейcа для дочерних классов.
+1. `@staticmethod`: Декоратор, который обозначает, что метод является статическим. Статические методы не требуют создания экземпляра класса для вызова.
+2. `greeting()`: Метод, который выводит приветствие на соответствующем языке.
+3. Функция `greet(language)`: Принимает объект класса `Russian` или `English` как аргумент и вызывает метод `greeting()` у переданного объекта, чтобы получить приветствие на соответствующем языке.
 
-## Самостоятельная работа №1
-### Самостоятельно создайте класс и его объект. Они должны отличаться, от тех, что указаны в теоретическом материале (методичке) и лабораторных заданиях. Результатом выполнения задания будет листинг кода и получившийся вывод консоли.
+
+## Задание Садовник и помидоры.
+
+Классовая структура:
+
+Есть Помидор со следующими характеристиками:
+- Индекс
+- Стадия созревания (стадии: отсутствует, цветение, зеленый, красный)
+
+Помидор может:
+- Расти (переходить на следующую стадию созревания)
+- Предоставлять информацию о своей зрелости
+
+Есть Куст с помидорами, который:
+- Содержит список томатов, которые на нем растут
+
+А также может:
+- Расти вместе с томатами
+- Предоставлять информацию о зрелости всех томатов
+- Предоставлять урожай
+
+И также есть Садовник, который имеет:
+- Имя
+- Растение, за которым он ухаживает
+
+Он может:
+- Ухаживать за растением
+- Собирать с него урожай
+
+## Задание: 
+## Класс `Tomato`:
+1) Создайте класс `Tomato`
+2) Создайте статическое свойство `states`, которое будет содержать все стадии созревания помидора
+3) Создайте метод `__init__()`, внутри которого будут определены два динамических свойства: `_index` (передается параметром) и `_state` (принимает первое значение из словаря `states`). После написания этого блока кода в комментарии к нему укажите какими являются эти два свойства
+4) Создайте метод `grow()`, который будет переводить томат на следующую стадию созревания
+5) Создайте метод `is_ripe()`, который будет проверять, что томат созрел
 
 ```python
-class Book:
-    def __init__(self, title, author, genre):
-        self.title = title
-        self.author = author
-        self.genre = genre
+class Tomato:
+    states = ["отсутствует", "цветение", "зеленый", "красный"]  # Стадии созревания
 
-    def get_info(self):
-        return f"Название: {self.title}\nАвтор: {self.author}\nЖанр: {self.genre}"
+    def __init__(self, index):
+        self._index = index  # Индекс томата, приватное свойство
+        self._state = self.states[0] # Начальная стадия созревания, приватное свойство
 
-my_book = Book("Война и мир", "Лев Толстой", "Роман")
-print(my_book.get_info())
+    def grow(self):
+        current_state_index = self.states.index(self._state)
+        if current_state_index < len(self.states) - 1:
+            self._state = self.states[current_state_index + 1]
+
+    def is_ripe(self):
+        return self._state == "красный"
+```
+
+## Класс `TomatoBush`:
+1) Создайте класс `TomatoBush`
+2) Определите метод `__init__()`, который будет принимать в качестве параметра количество томатов и на его основе будет создавать список объектов класса `Tomato`. Данный список будет храниться внутри динамического свойства `tomatoes`
+3) Создайте метод `grow_all()`, который будет переводить все объекты из списка томатов на следующий этап созревания
+4) Создайте метод `all_are_ripe()`, который будет возвращать `True`, если все томаты из списка стали спелыми.
+5) Создайте метод `give_away_all()`, который будет чистить список томатов после сбора урожая
+
+```python
+class TomatoBush:
+
+    def __init__(self, num_tomatoes):
+        self.tomatoes = [Tomato(i) for i in range(num_tomatoes)] # Список томатов
+
+    def grow_all(self):
+        for tomato in self.tomatoes:
+            tomato.grow()
+
+    def all_are_ripe(self):
+        return all([tomato.is_ripe() for tomato in self.tomatoes])
+
+    def give_away_all(self):
+        self.tomatoes = []
+```
+
+## Класс `Gardener`:
+1) Создайте класс `Gardener`
+2) Создайте метод `__init__()`, внутри которого будут определены два динамических свойства: `name` (передается параметром, является публичным) и `_plant` (принимает объект класса TomatoBush). После написания этого блока кода в комментарии к нему укажите какими являются эти два свойства
+3) Создайте метод `work()`, который заставляет садовника работать, что позволяет растению становиться более зрелым
+4) Создайте метод `harvest()`, который проверяет, все ли плоды созрели. Если все, то садовник собирает урожай. Если нет, то метод печатает предупреждение
+5) Создайте статический метод `knowledge_base()`, который выведет в консоль справку по садоводству
+
+```python
+class Gardener:
+
+    def __init__(self, name, plant):
+        self.name = name  # Имя садовника, публичное свойство
+        self._plant = plant # Объект TomatoBush, растение, приватное свойство
+
+    def work(self):
+        self._plant.grow_all()
+
+    def harvest(self):
+        if self._plant.all_are_ripe():
+            self._plant.give_away_all()
+            print(f"Садовник {self.name} собрал урожай!")
+        else:
+            print(f"Садовник {self.name}: Помидоры еще не созрели!")
+
+    @staticmethod
+    def knowledge_base():
+        print("Справка по садоводству: \n"
+              "Помидоры растут постепенно, от отсутствия до красного цвета.\n"
+              "Ухаживайте за ними и они порадуют вас вкусным урожаем.")
+```
+
+## Тесты:
+## 1) Вызовите справку по садоводству
+
+```python
+Gardener.knowledge_base()  # Вызов справки по садоводству
+print()
+```
+### Результат.
+
+
+## 2) Создайте объекты классов `TomatoBush` и `Gardener`
+
+```python
+bush = TomatoBush(5)  # Создание куста с 5 помидорами
+gardener = Gardener("Иван", bush)  # Создание садовника Ивана
 ```
 
 ### Результат.
 
 
-## Вывод
-1. `class Book:`: Определяет класс Book для представления книги.
-2. `def __init__(self, title, author, genre):`: Конструктор класса, который инициализирует объект Book атрибутами title (название), author (автор) и genre (жанр).
-  - `self` - ссылка на создаваемый объект.
-  - `title, author, genre` - параметры, которые будут использоваться для инициализации атрибутов.
-3. `self.title = title`: Создается атрибут `title` объекта класса `Book` и ему присваивается значение параметра `title`.
-4. `self.author = author`: Создается атрибут author объекта класса `Book` и ему присваивается значение параметра `author`.
-5. `self.genre = genre`: Создается атрибут genre объекта класса `Book` и ему присваивается значение параметра `genre`.
-6. `my_book = Book("Война и мир", "Лев Толстой", "Роман")`: Создается объект класса `Book` с именем `my_book`, передавая значения "Война и мир", "Лев Толстой" и "Роман" для атрибутов title, author и genre.
-7. `print(f"Название: {my_book.title}\nАвтор: {my_book.author}\nЖанр: {my_book.genre}")`: Выводит информацию о книге в консоль, используя атрибуты объекта `my_book`.
-
-## Самостоятельная работа №2
-### Самостоятельно создайте атрибуты и методы для ранее созданного класса. Они должны отличаться, от тех, что указаны в теоретическом материале (методичке) и лабораторных заданиях. Результатом выполнения задания будет листинг кода и получившийся вывод консоли.
+## 3) Используя объект класса `Gardener`, поухаживайте за кустом с помидорами
 
 ```python
-class Book:
- def __init__(self, title, author, genre, pages, publication_year):
-  self.title = title
-  self.author = author
-  self.genre = genre
-  self.pages = pages
-  self.publication_year = publication_year
-
- def get_book_info(self):
-  print(f"Название: {self.title}\nАвтор: {self.author}\nЖанр: {self.genre}\nКоличество страниц: {self.pages}\nГод издания: {self.publication_year}")
-
-my_book = Book("Война и мир", "Лев Толстой", "Роман", 1225, 1869)
-my_book.get_book_info()
+print("Уход за кустом:")
+for _ in range(3):  # Симуляция роста в течение 3 дней
+    gardener.work()
+    print(f"Томаты на кусте: {[tomato._state for tomato in bush.tomatoes]}")
+print()
 ```
 
 ### Результат.
 
 
-## Вывод
-1. Атрибут: `publication_year` для хранения года издания книги.
-2. Метод: `get_book_info()`, который выводит информацию о книге в консоль.
-
-## Самостоятельная работа №3
-### Самостоятельно реализуйте наследование, продолжая работать с ранее созданным классом. Оно должно отличаться, от того, что указано в теоретическом материале (методичке) и лабораторных заданиях. Результатом выполнения задания будет листинг кода и получившийся вывод консоли.
+## 4) Попробуйте собрать урожай, когда томаты еще не дозрели. Продолжайте ухаживать за ними
 
 ```python
-class Book:
- def __init__(self, title, author, genre, pages, publication_year):
-  self.title = title
-  self.author = author
-  self.genre = genre
-  self.pages = pages
-  self.publication_year = publication_year
+print("Попытка сбора урожая:")
+gardener.harvest()
+print()
 
- def get_book_info(self):
-  print(f"Название: {self.title}\nАвтор: {self.author}\nЖанр: {self.genre}\nКоличество страниц: {self.pages}\nГод издания: {self.publication_year}")
-
-class ClassicLiterature(Book):
- def __init__(self, title, author, genre, pages, publication_year, era):
-  super().__init__(title, author, genre, pages, publication_year)
-  self.era = era
-
- def get_classic_info(self):
-  print(f"Название: {self.title}\nАвтор: {self.author}\nЖанр: {self.genre}\nКоличество страниц: {self.pages}\nГод издания: {self.publication_year}\nЭпоха: {self.era}")
-
-war_and_peace = ClassicLiterature("Война и мир", "Лев Толстой", "Роман", 1225, 1869, "XIX век")
-war_and_peace.get_classic_info()
+print("Продолжение ухода:")
+for _ in range(2):  # Симуляция роста в течение 2 дней
+    gardener.work()
+    print(f"Томаты на кусте: {[tomato._state for tomato in bush.tomatoes]}")
+print()
 ```
 
 ### Результат.
 
 
-## Вывод
-1. Создан класс `ClassicLiterature`, который наследует от `Book`. 
-2. В `ClassicLiterature` добавлен новый атрибут `era`, чтобы хранить информацию о литературной эпохе.
-3. Создан метод `get_classic_info()`, который выводит информацию о классическом произведении, включая эпоху.
-
-## Самостоятельная работа №4
-### Самостоятельно реализуйте инкапсуляцию, продолжая работать с ранее созданным классом. Она должна отличаться, от того, что указана в теоретическом материале (методичке) и лабораторных заданиях. Результатом выполнения задания будет листинг кода и получившийся вывод консоли.
+## 5) Соберите урожай
 
 ```python
-class Book:
- def __init__(self, title, author, genre, pages, publication_year):
-  self._title = title
-  self._author = author
-  self._genre = genre
-  self._pages = pages
-  self._publication_year = publication_year
-
- def get_title(self):
-  return self._title
-
- def set_title(self, title):
-  self._title = title
-
- def get_author(self):
-  return self._author
-
- def set_author(self, author):
-  self._author = author
-
- def get_genre(self):
-  return self._genre
-
- def set_genre(self, genre):
-  self._genre = genre
-
- def get_pages(self):
-  return self._pages
-
- def set_pages(self, pages):
-  self._pages = pages
-
- def get_publication_year(self):
-  return self._publication_year
-
- def set_publication_year(self, publication_year):
-  self._publication_year = publication_year
-
- def get_book_info(self):
-  print(f"Название: {self.get_title()}\nАвтор: {self.get_author()}\nЖанр: {self.get_genre()}\nКоличество страниц: {self.get_pages()}\nГод издания: {self.get_publication_year()}")
-
-class ClassicLiterature(Book):
- def __init__(self, title, author, genre, pages, publication_year, era):
-  super().__init__(title, author, genre, pages, publication_year)
-  self._era = era
-
- def get_era(self):
-  return self._era
-
- def set_era(self, era):
-  self._era = era
-
- def get_classic_info(self):
-  print(f"Название: {self.get_title()}\nАвтор: {self.get_author()}\nЖанр: {self.get_genre()}\nКоличество страниц: {self.get_pages()}\nГод издания: {self.get_publication_year()}\nЭпоха: {self.get_era()}")
-
-war_and_peace = ClassicLiterature("Война и мир", "Лев Толстой", "Роман", 1225, 1869, "XIX век")
-war_and_peace.get_classic_info()
+print("Сбор урожая:")
+gardener.harvest()
 ```
 
 ### Результат.
 
 
-## Вывод
-1. Приватные атрибуты:
-  - Все атрибуты (поле) классов `Book` и `ClassicLiterature` объявлены с префиксом подчеркивания (_), например, `_title`, `_author`, `_era`. Это соглашение в Python обозначает, что эти атрибуты считаются приватными, т.е. доступными только изнутри самого класса.
-  - Внешний код не может напрямую обращаться к этим атрибутам.
-
-2. Геттеры и сеттеры:
-  - Для каждого приватного атрибута определены геттеры (методы типа `get_title`, `get_author`, `get_era`) и сеттеры (методы типа `set_title`, `set_author`, `set_era`).
-  - Геттеры предоставляют возможность получения значения приватного атрибута, а сеттеры - изменения его значения.
-  
-## Самостоятельная работа №5
-### Самостоятельно реализуйте полиморфизм. Он должен отличаться, от того, что указан в теоретическом материале (методичке) и лабораторных заданиях. Результатом выполнения задания будет листинг кода и получившийся вывод консоли.
-
-```python
-class Book:
- def __init__(self, title, author, genre, pages, publication_year):
-  self._title = title
-  self._author = author
-  self._genre = genre
-  self._pages = pages
-  self._publication_year = publication_year
-
- def get_title(self):
-  return self._title
-
- def set_title(self, title):
-  self._title = title
-
- def get_author(self):
-  return self._author
-
- def set_author(self, author):
-  self._author = author
-
- def get_genre(self):
-  return self._genre
-
- def set_genre(self, genre):
-  self._genre = genre
-
- def get_pages(self):
-  return self._pages
-
- def set_pages(self, pages):
-  self._pages = pages
-
- def get_publication_year(self):
-  return self._publication_year
-
- def set_publication_year(self, publication_year):
-  self._publication_year = publication_year
-
- def get_book_info(self):
-  print(f"Название: {self.get_title()}\nАвтор: {self.get_author()}\nЖанр: {self.get_genre()}\nКоличество страниц: {self.get_pages()}\nГод издания: {self.get_publication_year()}")
-
-class ClassicLiterature(Book):
- def __init__(self, title, author, genre, pages, publication_year, era):
-  super().__init__(title, author, genre, pages, publication_year)
-  self._era = era
-
- def get_era(self):
-  return self._era
-
- def set_era(self, era):
-  self._era = era
-
- def get_classic_info(self):
-  print(f"Название: {self.get_title()}\nАвтор: {self.get_author()}\nЖанр: {self.get_genre()}\nКоличество страниц: {self.get_pages()}\nГод издания: {self.get_publication_year()}\nЭпоха: {self.get_era()}")
-
-class ModernNovel(Book):
- def __init__(self, title, author, genre, pages, publication_year, awards):
-  super().__init__(title, author, genre, pages, publication_year)
-  self._awards = awards
-
- def get_awards(self):
-  return self._awards
-
- def set_awards(self, awards):
-  self._awards = awards
-
- def get_modern_info(self):
-  print(f"Название: {self.get_title()}\nАвтор: {self.get_author()}\nЖанр: {self.get_genre()}\nКоличество страниц: {self.get_pages()}\nГод издания: {self.get_publication_year()}\nНаграды: {self.get_awards()}")
-
-books = [
-  ClassicLiterature("Война и мир", "Лев Толстой", "Роман", 1225, 1869, "XIX век"),
-  ModernNovel("1984", "Джордж Оруэлл", "Антиутопия", 328, 1949, "Премия памяти Джона У. Кэмпбелла")
-]
-
-for book in books:
- if isinstance(book, ClassicLiterature):
-  book.get_classic_info()
- elif isinstance(book, ModernNovel):
-  book.get_modern_info()
-```
+Результатом работы вашей программы будет листинг кода с подробными комментариями и скриншоты выполенния всех тестов.
 
 ### Результат.
 
+```python
+class Tomato: # Класс, представляющий томат
 
-## Вывод
-В коде реализован полиморфизм через:
-1. Разные методы для вывода информации: Методы `get_classic_info()` и `get_modern_info()` отличаются по выводимой информации.
-2. Единый интерфейс: Несмотря на разные методы, все книги вызывают метод `get_book_info()` для вывода общей информации.
+    states = ["отсутствует", "цветение", "зеленый", "красный"]  # Стадии созревания
+
+    def __init__(self, index): # Инициализирует томат
+        self._index = index  # Индекс томата, приватное свойство
+        self._state = self.states[0] # Начальная стадия созревания, приватное свойство
+
+    def grow(self): # Переводит томат на следующую стадию созревания
+        current_state_index = self.states.index(self._state) # Находим индекс текущей стадии
+        if current_state_index < len(self.states) - 1: # Проверяем, есть ли следующая стадия
+            self._state = self.states[current_state_index + 1] # Переходим на следующую стадию
+
+    def is_ripe(self): # Проверяет, созрел ли томат
+        return self._state == "красный"
+
+
+class TomatoBush: # Класс, представляющий куст с помидорами
+
+    def __init__(self, num_tomatoes): #Инициализирует куст с заданным количеством томатов
+        self.tomatoes = [Tomato(i) for i in range(num_tomatoes)] # Создаем список томатов
+
+    def grow_all(self): # Переводит все томаты на кусте на следующую стадию созревания
+        for tomato in self.tomatoes:
+            tomato.grow()
+
+    def all_are_ripe(self): # Проверяет, все ли томаты на кусте созрели
+        return all([tomato.is_ripe() for tomato in self.tomatoes])
+
+    def give_away_all(self): # Удаляет все томаты с куста после сбора урожая
+        self.tomatoes = []
+
+
+class Gardener: # Класс, представляющий садовника
+
+    def __init__(self, name, plant): # Инициализирует садовника
+        self.name = name  # Имя садовника, публичное свойство
+        self._plant = plant # Объект TomatoBush, растение, приватное свойство
+
+    def work(self): # Садовник ухаживает за кустом, заставляя томаты расти
+        self._plant.grow_all()
+
+    def harvest(self): # Садовник собирает урожай, если все томаты созрели
+        if self._plant.all_are_ripe(): # Проверяем, созрели ли все томаты
+            self._plant.give_away_all() # Сбор урожая
+            print(f"Садовник {self.name} собрал урожай!")
+        else:
+            print(f"Садовник {self.name}: Помидоры еще не созрели!")
+
+    @staticmethod
+    def knowledge_base(): # Выводит справку по садоводству
+        print("Справка по садоводству: \n"
+              "Помидоры растут постепенно, от отсутствия до красного цвета.\n"
+              "Ухаживайте за ними и они порадуют вас вкусным урожаем.")
+
+
+# Тесты
+Gardener.knowledge_base()  # Вызов справки по садоводству
+print()
+
+bush = TomatoBush(5)  # Создание куста с 5 помидорами
+gardener = Gardener("Иван", bush)  # Создание садовника Ивана
+
+print("Уход за кустом:")
+for _ in range(3):  # Симуляция роста в течение 3 дней
+    gardener.work()
+    print(f"Томаты на кусте: {[tomato._state for tomato in bush.tomatoes]}")
+print()
+
+print("Попытка сбора урожая:")
+gardener.harvest()
+print()
+
+print("Продолжение ухода:")
+for _ in range(2):  # Симуляция роста в течение 2 дней
+    gardener.work()
+    print(f"Томаты на кусте: {[tomato._state for tomato in bush.tomatoes]}")
+print()
+
+print("Сбор урожая:")
+gardener.harvest()
+```
 
 ## Общие выводы по теме
 
