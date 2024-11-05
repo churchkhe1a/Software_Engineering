@@ -190,265 +190,28 @@ greet(john)
 2. `greeting()`: Метод, который выводит приветствие на соответствующем языке.
 3. Функция `greet(language)`: Принимает объект класса `Russian` или `English` как аргумент и вызывает метод `greeting()` у переданного объекта, чтобы получить приветствие на соответствующем языке.
 
+
 ## Самостоятельная работа №1
-### Самостоятельно создайте класс и его объект. Они должны отличаться, от тех, что указаны в теоретическом материале (методичке) и лабораторных заданиях. Результатом выполнения задания будет листинг кода и получившийся вывод консоли.
-
-```python
-class Book:
-    def __init__(self, title, author, genre):
-        self.title = title
-        self.author = author
-        self.genre = genre
-
-    def get_info(self):
-        return f"Название: {self.title}\nАвтор: {self.author}\nЖанр: {self.genre}"
-
-my_book = Book("Война и мир", "Лев Толстой", "Роман")
-print(my_book.get_info())
-```
-
-### Результат.
-
-
-## Вывод
-1. `class Book:`: Определяет класс Book для представления книги.
-2. `def __init__(self, title, author, genre):`: Конструктор класса, который инициализирует объект Book атрибутами title (название), author (автор) и genre (жанр).
-  - `self` - ссылка на создаваемый объект.
-  - `title, author, genre` - параметры, которые будут использоваться для инициализации атрибутов.
-3. `self.title = title`: Создается атрибут `title` объекта класса `Book` и ему присваивается значение параметра `title`.
-4. `self.author = author`: Создается атрибут author объекта класса `Book` и ему присваивается значение параметра `author`.
-5. `self.genre = genre`: Создается атрибут genre объекта класса `Book` и ему присваивается значение параметра `genre`.
-6. `my_book = Book("Война и мир", "Лев Толстой", "Роман")`: Создается объект класса `Book` с именем `my_book`, передавая значения "Война и мир", "Лев Толстой" и "Роман" для атрибутов title, author и genre.
-7. `print(f"Название: {my_book.title}\nАвтор: {my_book.author}\nЖанр: {my_book.genre}")`: Выводит информацию о книге в консоль, используя атрибуты объекта `my_book`.
-
-## Самостоятельная работа №2
-### Самостоятельно создайте атрибуты и методы для ранее созданного класса. Они должны отличаться, от тех, что указаны в теоретическом материале (методичке) и лабораторных заданиях. Результатом выполнения задания будет листинг кода и получившийся вывод консоли.
-
-```python
-class Book:
- def __init__(self, title, author, genre, pages, publication_year):
-  self.title = title
-  self.author = author
-  self.genre = genre
-  self.pages = pages
-  self.publication_year = publication_year
-
- def get_book_info(self):
-  print(f"Название: {self.title}\nАвтор: {self.author}\nЖанр: {self.genre}\nКоличество страниц: {self.pages}\nГод издания: {self.publication_year}")
-
-my_book = Book("Война и мир", "Лев Толстой", "Роман", 1225, 1869)
-my_book.get_book_info()
-```
-
-### Результат.
-
-
-## Вывод
-1. Атрибут: `publication_year` для хранения года издания книги.
-2. Метод: `get_book_info()`, который выводит информацию о книге в консоль.
-
-## Самостоятельная работа №3
-### Самостоятельно реализуйте наследование, продолжая работать с ранее созданным классом. Оно должно отличаться, от того, что указано в теоретическом материале (методичке) и лабораторных заданиях. Результатом выполнения задания будет листинг кода и получившийся вывод консоли.
-
-```python
-class Book:
- def __init__(self, title, author, genre, pages, publication_year):
-  self.title = title
-  self.author = author
-  self.genre = genre
-  self.pages = pages
-  self.publication_year = publication_year
-
- def get_book_info(self):
-  print(f"Название: {self.title}\nАвтор: {self.author}\nЖанр: {self.genre}\nКоличество страниц: {self.pages}\nГод издания: {self.publication_year}")
-
-class ClassicLiterature(Book):
- def __init__(self, title, author, genre, pages, publication_year, era):
-  super().__init__(title, author, genre, pages, publication_year)
-  self.era = era
-
- def get_classic_info(self):
-  print(f"Название: {self.title}\nАвтор: {self.author}\nЖанр: {self.genre}\nКоличество страниц: {self.pages}\nГод издания: {self.publication_year}\nЭпоха: {self.era}")
-
-war_and_peace = ClassicLiterature("Война и мир", "Лев Толстой", "Роман", 1225, 1869, "XIX век")
-war_and_peace.get_classic_info()
-```
-
-### Результат.
-
-
-## Вывод
-1. Создан класс `ClassicLiterature`, который наследует от `Book`. 
-2. В `ClassicLiterature` добавлен новый атрибут `era`, чтобы хранить информацию о литературной эпохе.
-3. Создан метод `get_classic_info()`, который выводит информацию о классическом произведении, включая эпоху.
-
-## Самостоятельная работа №4
-### Самостоятельно реализуйте инкапсуляцию, продолжая работать с ранее созданным классом. Она должна отличаться, от того, что указана в теоретическом материале (методичке) и лабораторных заданиях. Результатом выполнения задания будет листинг кода и получившийся вывод консоли.
-
-```python
-class Book:
- def __init__(self, title, author, genre, pages, publication_year):
-  self._title = title
-  self._author = author
-  self._genre = genre
-  self._pages = pages
-  self._publication_year = publication_year
-
- def get_title(self):
-  return self._title
-
- def set_title(self, title):
-  self._title = title
-
- def get_author(self):
-  return self._author
-
- def set_author(self, author):
-  self._author = author
-
- def get_genre(self):
-  return self._genre
-
- def set_genre(self, genre):
-  self._genre = genre
-
- def get_pages(self):
-  return self._pages
-
- def set_pages(self, pages):
-  self._pages = pages
-
- def get_publication_year(self):
-  return self._publication_year
-
- def set_publication_year(self, publication_year):
-  self._publication_year = publication_year
-
- def get_book_info(self):
-  print(f"Название: {self.get_title()}\nАвтор: {self.get_author()}\nЖанр: {self.get_genre()}\nКоличество страниц: {self.get_pages()}\nГод издания: {self.get_publication_year()}")
-
-class ClassicLiterature(Book):
- def __init__(self, title, author, genre, pages, publication_year, era):
-  super().__init__(title, author, genre, pages, publication_year)
-  self._era = era
-
- def get_era(self):
-  return self._era
-
- def set_era(self, era):
-  self._era = era
-
- def get_classic_info(self):
-  print(f"Название: {self.get_title()}\nАвтор: {self.get_author()}\nЖанр: {self.get_genre()}\nКоличество страниц: {self.get_pages()}\nГод издания: {self.get_publication_year()}\nЭпоха: {self.get_era()}")
-
-war_and_peace = ClassicLiterature("Война и мир", "Лев Толстой", "Роман", 1225, 1869, "XIX век")
-war_and_peace.get_classic_info()
-```
-
-### Результат.
-
-
-## Вывод
-1. Приватные атрибуты:
-  - Все атрибуты (поле) классов `Book` и `ClassicLiterature` объявлены с префиксом подчеркивания (_), например, `_title`, `_author`, `_era`. Это соглашение в Python обозначает, что эти атрибуты считаются приватными, т.е. доступными только изнутри самого класса.
-  - Внешний код не может напрямую обращаться к этим атрибутам.
-
-2. Геттеры и сеттеры:
-  - Для каждого приватного атрибута определены геттеры (методы типа `get_title`, `get_author`, `get_era`) и сеттеры (методы типа `set_title`, `set_author`, `set_era`).
-  - Геттеры предоставляют возможность получения значения приватного атрибута, а сеттеры - изменения его значения.
-  
-## Самостоятельная работа №5
-### Самостоятельно реализуйте полиморфизм. Он должен отличаться, от того, что указан в теоретическом материале (методичке) и лабораторных заданиях. Результатом выполнения задания будет листинг кода и получившийся вывод консоли.
-
-```python
-class Book:
- def __init__(self, title, author, genre, pages, publication_year):
-  self._title = title
-  self._author = author
-  self._genre = genre
-  self._pages = pages
-  self._publication_year = publication_year
-
- def get_title(self):
-  return self._title
-
- def set_title(self, title):
-  self._title = title
-
- def get_author(self):
-  return self._author
-
- def set_author(self, author):
-  self._author = author
-
- def get_genre(self):
-  return self._genre
-
- def set_genre(self, genre):
-  self._genre = genre
-
- def get_pages(self):
-  return self._pages
-
- def set_pages(self, pages):
-  self._pages = pages
-
- def get_publication_year(self):
-  return self._publication_year
-
- def set_publication_year(self, publication_year):
-  self._publication_year = publication_year
-
- def get_book_info(self):
-  print(f"Название: {self.get_title()}\nАвтор: {self.get_author()}\nЖанр: {self.get_genre()}\nКоличество страниц: {self.get_pages()}\nГод издания: {self.get_publication_year()}")
-
-class ClassicLiterature(Book):
- def __init__(self, title, author, genre, pages, publication_year, era):
-  super().__init__(title, author, genre, pages, publication_year)
-  self._era = era
-
- def get_era(self):
-  return self._era
-
- def set_era(self, era):
-  self._era = era
-
- def get_classic_info(self):
-  print(f"Название: {self.get_title()}\nАвтор: {self.get_author()}\nЖанр: {self.get_genre()}\nКоличество страниц: {self.get_pages()}\nГод издания: {self.get_publication_year()}\nЭпоха: {self.get_era()}")
-
-class ModernNovel(Book):
- def __init__(self, title, author, genre, pages, publication_year, awards):
-  super().__init__(title, author, genre, pages, publication_year)
-  self._awards = awards
-
- def get_awards(self):
-  return self._awards
-
- def set_awards(self, awards):
-  self._awards = awards
-
- def get_modern_info(self):
-  print(f"Название: {self.get_title()}\nАвтор: {self.get_author()}\nЖанр: {self.get_genre()}\nКоличество страниц: {self.get_pages()}\nГод издания: {self.get_publication_year()}\nНаграды: {self.get_awards()}")
-
-books = [
-  ClassicLiterature("Война и мир", "Лев Толстой", "Роман", 1225, 1869, "XIX век"),
-  ModernNovel("1984", "Джордж Оруэлл", "Антиутопия", 328, 1949, "Премия памяти Джона У. Кэмпбелла")
-]
-
-for book in books:
- if isinstance(book, ClassicLiterature):
-  book.get_classic_info()
- elif isinstance(book, ModernNovel):
-  book.get_modern_info()
-```
-
-### Результат.
-
-
-## Вывод
-В коде реализован полиморфизм через:
-1. Разные методы для вывода информации: Методы `get_classic_info()` и `get_modern_info()` отличаются по выводимой информации.
-2. Единый интерфейс: Несмотря на разные методы, все книги вызывают метод `get_book_info()` для вывода общей информации.
+Задание Садовник и помидоры.
+Классовая структура:
+Есть Помидор со следующими характеристиками:
+• Индекс
+• Стадия созревания (стадии: отсутствует, цветение, зеленый, красный)
+Помидор может:
+• Расти (переходить на следующую стадию созревания)
+• Предоставлять информацию о своей зрелости
+Есть Куст с помидорами, который:
+• Содержит список томатов, которые на нем растут
+А также может:
+• Расти вместе с томатами
+• Предоставлять информацию о зрелости всех томатов
+• Предоставлять урожай
+И также есть Садовник, который имеет:
+• Имя
+• Растение, за которым он ухаживает
+Он может:
+• Ухаживать за растением
+• Собирать с него урожай
 
 ## Общие выводы по теме
 
