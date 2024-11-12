@@ -1,19 +1,18 @@
-class Icecream:
-    def __init__(self, ingredient=None):
-        if isinstance(ingredient, str):
-            self.ingredient = ingredient
-        else:
-            self.ingredient = None
+def check(input_func):
+    def output_func(*args):
+        name, age = args[0], args[1]
 
-    def composition(self):
-        if self.ingredient:
-            print(f"Мороженое с {self.ingredient}")
-        else:
-            print('Обычное мороженое')
-            
-icecream = Icecream()
-icecream.composition()
-icecream = Icecream('шоколадом')
-icecream.composition()
-icecream = Icecream(5)
-icecream.composition()
+        if age < 0 or age > 130:
+            age = 'Недопустимый возраст'
+        input_func(name, age)
+
+    return output_func
+
+@check
+def personal_info(name,age):
+    print(f"Name: {name}  Age: {age}")
+
+if __name__ == '__main__':
+    personal_info('Владимир', 38)
+    personal_info('Александр', -5)
+    personal_info('Петр', 138,15,48,2)
