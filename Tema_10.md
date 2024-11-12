@@ -40,7 +40,7 @@ if __name__ == '__main__':
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/83e2f2f2-3019-4d32-822d-fa42e3f64347)
 
 ## Вывод
 Без декоратора:
@@ -78,7 +78,7 @@ if __name__ == '__main__':
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/64db2323-28bb-49a7-bf5b-8c237de14388)
 
 ## Вывод
 - check(input_func):
@@ -112,7 +112,7 @@ if __name__ == '__main__':
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/66aa7289-4031-406c-a2a7-14ba35815fc5)
 
 ## Вывод
 • try...except - защищает от ошибок, вызванных нецелыми числами.
@@ -138,6 +138,7 @@ if __name__ == '__main__':
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/99b40a07-8cbb-46f6-90f4-57062324b809)
 
 ## Вывод
 1. Класс NameTooLongException:
@@ -178,7 +179,7 @@ if __name__ == '__main__':
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/fc08957f-4bfd-478b-83f8-42b93322f41f)
 
 ## Вывод
 1. Класс SiteChecker:
@@ -238,7 +239,7 @@ if __name__ == '__main__':
 ```
 
 ### Результат.
-
+![image](https://github.com/user-attachments/assets/9cf5f044-31f4-4f31-a7b7-08bd78fa8117)
 
 ## Вывод
 1. Декоратор timer:
@@ -287,6 +288,7 @@ if __name__ == '__main__':
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/b70b3cde-732d-4286-aa63-d4596f9cdc71)
 
 ## Вывод
 1. Класс EmptyFileException: Остается неизменным.
@@ -326,6 +328,7 @@ if __name__ == '__main__':
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/6ca57dbb-ec6a-486c-8207-8d8abedc4d63)
 
 ## Вывод
 1. Функция sum_with_two:
@@ -378,6 +381,7 @@ if __name__ == '__main__':
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/f5d11ecf-5297-468e-9c9a-0dffe3897bc8)
 
 ## Вывод
 1. Класс LogDecorator:
@@ -393,7 +397,7 @@ if __name__ == '__main__':
 
 
 ## Самостоятельная работа №5
-### 
+### Создайте собственное исключение, которое будет использоваться в двух любых фрагментах кода. Исключения, которые использовались ранее в работе нельзя воссоздавать. Результатом выполнения задачи будет: класс исключения, код к котором в двух местах используется это исключение, скриншот консоли с выполненной программой и подробные комментарии, которые будут описывать работу вашего кода.
 
 ```python
 class DataError(Exception): # Исключение, которое возникает при ошибке обработки данных
@@ -436,6 +440,7 @@ if __name__ == '__main__':
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/c878c9a4-c266-453c-b89e-258aa8efb16b)
 
 ## Вывод
 1. Класс DataError:
