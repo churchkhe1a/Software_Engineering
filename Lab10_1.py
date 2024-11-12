@@ -1,14 +1,12 @@
-class Sasha:
-    __slots__ = ['name']
+from functools import lru_cache
 
-    def __init__(self, name):
-        if name == 'Саша':
-            self.name = f"Да, я {name}"
-        else:
-            self.name = f"Я не {name}, а Саша"
+@lru_cache(None)
+def fiboonacci(n):
+    if n ==0:
+        return 0
+    elif n == 1:
+        return 1
+    return fiboonacci(n-1) + fiboonacci(n-2)
 
-person1 = Sasha('Иван')
-person2 = Sasha('Саша')
-print(person1.name)
-print(person2.name)
-person2.surname = 'Обласова'
+if __name__ == '__main__':
+    print(fiboonacci(100))
