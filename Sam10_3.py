@@ -1,11 +1,17 @@
-def count_it(sequence):
+def sum_with_two(number):
 
-    num_frequency = {int(item): sequence.count(item) for item in sequence}
+  try:
+    result = 2 + int(number)
+    print(f"Результат сложения: {result}")
+  except ValueError:
+    print("Неподходящий тип данных. Ожидалось число.")
 
-    sorted_num_frequency = sorted(num_frequency.items(), key=lambda element: element[1])
+if __name__ == '__main__':
+  print("Тест 1: Ввод числа")
+  sum_with_two(5) # Ввод числа
 
-    return dict(sorted_num_frequency[-3:])
+  print("\nТест 2: Ввод строки")
+  sum_with_two("hello") # Ввод строки
 
-print(count_it('1111111111222'))
-print(count_it('123456789012133288776655353535353441111'))
-print(count_it('007767757744331166554444'))
+  print("\nТест 3: Ввод некорректного числа")
+  sum_with_two("12.5") # Ввод некорректного числа
