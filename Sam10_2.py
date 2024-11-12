@@ -1,14 +1,21 @@
-def remove_first_occurrence(tpl, value):
-    lst = list(tpl)
+class EmptyFileException(Exception):
+  pass
 
-    try:
-        lst.remove(value)
-    except ValueError:
-        pass
+def read_file(filename):
 
-    return tuple(lst)
+  with open(filename, 'r', encoding='utf-8') as file:
+    data = file.read()
+    if not data.strip():
+      raise EmptyFileException("Файл пустой")
+    print(data)
 
+if __name__ == '__main__':
+  try:
+    read_file('empty_file.txt') # Пустой файл
+  except EmptyFileException as e:
+    print(f"Ошибка: {e}")
 
-print(remove_first_occurrence((1, 2, 3), 1))
-print(remove_first_occurrence((1, 2, 3, 1, 2, 3, 4, 5, 2, 3, 4, 2, 4, 2), 3))
-print(remove_first_occurrence((2, 4, 6, 6, 4, 2), 9))
+  try:
+    read_file('data_file.txt') # Файл с данными
+  except EmptyFileException as e:
+    print(f"Ошибка: {e}")
