@@ -1,23 +1,26 @@
-def find_subsequence(logs, employee_id):
+class LogDecorator: # Декоратор, который выводит информацию о вызове декорированной функции
 
-    first_index = -1
-    second_index = -1
+  def __init__(self, func): # Инициализирует декоратор, запоминает декорируемую функцию
+    self.func = func
 
-    for index, value in enumerate(logs):
-        if value == employee_id:
-            if first_index == -1:
-                first_index = index
-            elif second_index == -1:
-                second_index = index
-                break
-
-    if first_index == -1:
-        return ()
-    if second_index == -1:
-        return logs[first_index:]
-    return logs[first_index:second_index + 1]
+  def __call__(self, *args, **kwargs): # Выполняется при вызове декорированной функции
+    print(f"Вызов функции: {self.func.__name__}")
+    print(f"Аргументы: {args}, {kwargs}")
+    result = self.func(*args, **kwargs) # Выполняем декорируемую функцию
+    print(f"Результат: {result}")
+    print(f"Функция {self.func.__name__} завершена")
+    return result
 
 
-print(find_subsequence((1, 2, 3), 8))
-print(find_subsequence((1, 8, 3, 4, 8, 8, 9, 2), 8))
-print(find_subsequence((1, 2, 8, 5, 1, 2, 9), 8))
+@LogDecorator
+def greet(name): # Приветствует пользователя по имени
+  return f"Привет, {name}!"
+
+@LogDecorator
+def calculate_sum(a, b): # Складывает два числа
+  return a + b
+
+if __name__ == '__main__':
+  greet("Саша")
+  print()
+  calculate_sum(10, 20)
