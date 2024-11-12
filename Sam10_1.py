@@ -1,8 +1,22 @@
-user_input = input("Введите последовательность чисел, разделенных пробелом: ")
+import time
 
-numbers_list = [int(x) for x in user_input.split()]
+def timer(func):
+  def wrapper(*args, **kwargs):
+    start_time = time.time()
+    result = func(*args, **kwargs)
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    print(f"\nВремя выполнения: {elapsed_time:.4f} секунд")
+    return result
+  return wrapper
 
-numbers_tuple = tuple(numbers_list)
+@timer
+def fibonacci():
+  fib1 = fib2 = 1
+  for i in range(2, 200):
+    fib1, fib2 = fib2, fib1 + fib2
+    print(fib2, end=' ')
 
-print("Список: ", numbers_list)
-print("Кортеж: ", numbers_tuple)
+if __name__ == '__main__':
+  print("Числа Фибоначчи:")
+  fibonacci()
