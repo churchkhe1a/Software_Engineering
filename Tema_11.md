@@ -1,5 +1,5 @@
-# Тема 9. Концепции и принципы ООП.
-Отчет по Теме #9 выполнил(а):
+# Тема 11. Итераторы и генераторы.
+Отчет по Теме #11 выполнил(а):
 - Обласова Александра Владимировна
 - ИВТ-22-2
 
@@ -22,26 +22,17 @@
 - к.э.н., доцент Панов М.А.
 
 ## Лабораторная работа №1
-### Допустим, что вы решили оригинально и немного странно познакомится с человеком. Для этого у вас должен быть написан свой класс на Python, который будет проверять угадал ваше имя человек или нет. Для этого создайте класс, указав в свойствах только имя. Дальше создайте функцию __init__(), а в ней сделайте проверку на то угадал человек ваше имя или нет. Также можете проверить что будет, если в этой функции указав атрибут, который не указан в вашем классе, например, попробуйте вызвать фамилию.
+### Простой итератор, но у него нет гибкой настройки, например его нельзя развернуть. Он работает просто как next(), но нет prev().
 
 ```python
-class Sasha:
-    __slots__ = ['name']
-
-    def __init__(self, name):
-        if name == 'Саша':
-            self.name = f"Да, я {name}"
-        else:
-            self.name = f"Я не {name}, а Саша"
-
-person1 = Sasha('Иван')
-person2 = Sasha('Саша')
-print(person1.name)
-print(person2.name)
-person2.surname = 'Обласова'
+numbers = [0,1,2,3,4,5]
+for item in numbers:
+    print(item)
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/7cceed4a-55c8-4cba-b671-4ae46b012a0e)
+
 
 
 ## Вывод
@@ -50,31 +41,31 @@ person2.surname = 'Обласова'
 3. `person2.surname = 'Обласова'` - попытка присвоить `person2` атрибут `surname`. Эта строка вызовет ошибку `AttributeError: 'Sasha' object has no attribute 'surname'`, поскольку `Sasha` не определяет атрибут `surname`.
 
 ## Лабораторная работа №2
-### Вам дали важное задание, написать продавцу мороженого программу, которая будет писать добавили ли топпинг в мороженое и цену после возможного изменения. Для этого вам нужно написать класс, в котором будет определяться изменили ли состав мороженого или нет. В этом классе реализуйте метод, выводящий на печать «Мороженое с {ТОППИНГ}» в случае наличия добавки, а иначе отобразится следующая фраза: «Обычное мороженое». При этом программа должна воспринимать как топпинг только атрибуты типа string.
+### Класс итератор с гибкой настройкой и удобными применением.
 
 ```python
-class Icecream:
-    def __init__(self, ingredient=None):
-        if isinstance(ingredient, str):
-            self.ingredient = ingredient
-        else:
-            self.ingredient = None
+class CountDown:
+    def __init__(self, start):
+        self.count = start + 1
 
-    def composition(self):
-        if self.ingredient:
-            print(f"Мороженое с {self.ingredient}")
-        else:
-            print('Обычное мороженое')
-            
-icecream = Icecream()
-icecream.composition()
-icecream = Icecream('шоколадом')
-icecream.composition()
-icecream = Icecream(5)
-icecream.composition()
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        self.count -=1
+        if self.count < 0:
+            raise StopIteration
+        return self.count
+
+if __name__== "__main__":
+    counter = CountDown(5)
+    for i in counter:
+        print(i)
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/ecd8531c-ec8b-4d02-8168-a991c29fb08f)
+
 
 
 ## Вывод
@@ -85,69 +76,46 @@ icecream.composition()
 5. `if self.ingredient:`: Проверяет, есть ли значение в `self.ingredient`.
 
 ## Лабораторная работа №3
-### Петя – начинающий программист и на занятиях ему сказали реализовать икапсу…что-то. А вы хороший друг Пети и ко всему прочему прекрасно знаете, что икапсу…что-то – это инкапсуляция, поэтому решаете помочь вашему другу с написанием класса с инкапсуляцией. Ваш класс будет не просто инкапсуляцией, а классом с сеттером, геттером и деструктором. После написания класса вам необходимо продемонстрировать что все написанные вами функции работают. Также вас необходимо объяснить Пете почему на скриншоте ниже в консоли выводится ошибка.
+### Генератор списка.
 
 ```python
-class MyClass:
-    def __init__(self, value):
-        self._value = value
+a = [i**2 for i in range(1,5)]
 
-    def set_value(self, value):
-        self._value = value
+print('a-', a)
+for i in a:
+    print(i)
 
-    def get_value(self):
-        if hasattr(self, '_value'):
-            return self._value
-        else:
-            raise AttributeError("Значение удалено")
-
-    def del_value(self):
-        del self._value
-
-    value = property(get_value, set_value, del_value, "Свойство value")
-
-
-obj = MyClass(42)
-print(obj.value)
-obj.set_value(45)
-print(obj.value)
-obj.set_value(100)
-print(obj.value)
-obj.del_value()
-try:
-    print(obj.value)
-except AttributeError as e:
-    print(e)
+print('iter(a) -', iter(a))
+for i in a:
+    print(i)
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/5e899c68-9fe5-411e-8712-9c36a265a9b5)
+
 
 
 ## Вывод
 Ошибка `AttributeError: 'MyClass' object has no attribute 'value'` возникает, потому что в коде происходит обращение к несуществующему атрибуту `value`. После того как был вызван `del_value()`, атрибут `value` был удален, но в коде происходит попытка его вывода.
 
 ## Лабораторная работа №4
-### Вам прекрасно известно, что кошки и собаки являются млекопитающими, но компьютер этого не понимает, поэтому вам нужно написать три класса: Кошки, Собаки, Млекопитающие. И при помощи “наследования” объяснить компьютеру что кошки и собаки – это млекопитающие. Также добавьте какой-нибудь свой атрибут для кошек и собак, чтобы показать, что они чем-то отличаются друг от друга.
+### Выражения генераторы.
 
 ```python
-class Mammal:
-    className = 'Mammal'
+b = (i**2 for i in range(1,5))
+print(b)
+print('first')
+for i in b:
+    print(i)
+print('second')
 
-class Dog(Mammal):
-    species = 'canine'
-    sounds = 'wow'
-
-class Cat(Mammal):
-    species = 'feline'
-    sounds = 'meow'
-
-dog = Dog()
-print(f"Dog is {dog.className}, but they say {dog.sounds}")
-cat = Cat()
-print(f"Cat is {cat.className}, but they say {cat.sounds}")
+for i in b:
+    print(i)
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/e600d036-6780-4cc5-867e-c007d1fd7186)
+
 
 ## Вывод
 1. `className = 'Mammal'`: Устанавливает атрибут `className` для класса `Mammal`.
@@ -157,32 +125,23 @@ print(f"Cat is {cat.className}, but they say {cat.sounds}")
 5. `sounds = 'meow'`: Добавляет атрибут для звуков, которые издает животное.
 
 ## Лабораторная работа №5
-### На разных языках здороваются по-разному, но суть остается одинаковой, люди друг с другом здороваются. Давайте вместе с вами реализуем программу с полиморфизмом, которая будет описывать всю суть первого предложения задачи. Для этого мы можем выбрать два языка, например, русский и английский и написать для них отдельные классы, в которых будет в виде атрибута слово, которым здороваются на этих языках. А также напишем функцию, которая будет выводить информацию о том, как на этих языках здороваются. Заметьте, что для решения поставленной задачи мы использовали декоратор @staticmethod, поскольку нам не нужны обязательные параметры-ссылки вроде self.
+### Такой же счетчик, как и в первом задании, только это генератор и использует yield.
 
 ```python
-class Russian:
-    @staticmethod
-    def greeting():
-        print("Привет")
+def countdown(count):
+    while count>=0:
+        yield count
+        count -=1
 
-
-class English:
-    @staticmethod
-    def greeting():
-        print("Hello")
-
-
-def greet(language):
-    language.greeting()
-
-
-ivan = Russian()
-greet(ivan)
-john = English()
-greet(john)
+if __name__== '__main__':
+    counter = countdown(5)
+    for i in counter:
+        print(i)
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/ace15914-4a94-4d4e-a98a-1b831311470f)
+
 
 
 ## Вывод
@@ -190,262 +149,54 @@ greet(john)
 2. `greeting()`: Метод, который выводит приветствие на соответствующем языке.
 3. Функция `greet(language)`: Принимает объект класса `Russian` или `English` как аргумент и вызывает метод `greeting()` у переданного объекта, чтобы получить приветствие на соответствующем языке.
 
-
-## Задание Садовник и помидоры.
-
-Классовая структура:
-
-Есть Помидор со следующими характеристиками:
-- Индекс
-- Стадия созревания (стадии: отсутствует, цветение, зеленый, красный)
-
-Помидор может:
-- Расти (переходить на следующую стадию созревания)
-- Предоставлять информацию о своей зрелости
-
-Есть Куст с помидорами, который:
-- Содержит список томатов, которые на нем растут
-
-А также может:
-- Расти вместе с томатами
-- Предоставлять информацию о зрелости всех томатов
-- Предоставлять урожай
-
-И также есть Садовник, который имеет:
-- Имя
-- Растение, за которым он ухаживает
-
-Он может:
-- Ухаживать за растением
-- Собирать с него урожай
-
-## Задание: 
-## Класс `Tomato`:
-1) Создайте класс `Tomato`
-2) Создайте статическое свойство `states`, которое будет содержать все стадии созревания помидора
-3) Создайте метод `__init__()`, внутри которого будут определены два динамических свойства: `_index` (передается параметром) и `_state` (принимает первое значение из словаря `states`). После написания этого блока кода в комментарии к нему укажите какими являются эти два свойства
-4) Создайте метод `grow()`, который будет переводить томат на следующую стадию созревания
-5) Создайте метод `is_ripe()`, который будет проверять, что томат созрел
+## Самостоятельная работа №1
+### Вас никак не могут оставить числа Фибоначчи, очень уж они вас заинтересовали. Изучив новые возможности Python вы решили реализовать программу, которая считает числа Фибоначчи припомощи итераторов. Расчет начинается с чисел 1 и 1. Создайте функцию fib(n), генерирующую n чисел Фибоначчи с минимальными затратами ресурсов. Для реализации этой функции потребуется обратиться к инструкции yield (Она не сохраняет воперативной памяти огромную последовательность, а дает возможность “доставать” промежуточные результаты по одному).Результатом решения задачи будет листинг кода и вывод в консоль с числом Фибоначчи от 200.
 
 ```python
-class Tomato:
-    states = ["отсутствует", "цветение", "зеленый", "красный"]  # Стадии созревания
+def fib(n):
+  a, b = 1, 1
+  for _ in range(n):
+    yield a
+    a, b = b, a + b
 
-    def __init__(self, index):
-        self._index = index  # Индекс томата, приватное свойство
-        self._state = self.states[0] # Начальная стадия созревания, приватное свойство
+fib_sequence = fib(200)
 
-    def grow(self):
-        current_state_index = self.states.index(self._state)
-        if current_state_index < len(self.states) - 1:
-            self._state = self.states[current_state_index + 1]
-
-    def is_ripe(self):
-        return self._state == "красный"
-```
-
-## Класс `TomatoBush`:
-1) Создайте класс `TomatoBush`
-2) Определите метод `__init__()`, который будет принимать в качестве параметра количество томатов и на его основе будет создавать список объектов класса `Tomato`. Данный список будет храниться внутри динамического свойства `tomatoes`
-3) Создайте метод `grow_all()`, который будет переводить все объекты из списка томатов на следующий этап созревания
-4) Создайте метод `all_are_ripe()`, который будет возвращать `True`, если все томаты из списка стали спелыми.
-5) Создайте метод `give_away_all()`, который будет чистить список томатов после сбора урожая
-
-```python
-class TomatoBush:
-
-    def __init__(self, num_tomatoes):
-        self.tomatoes = [Tomato(i) for i in range(num_tomatoes)] # Список томатов
-
-    def grow_all(self):
-        for tomato in self.tomatoes:
-            tomato.grow()
-
-    def all_are_ripe(self):
-        return all([tomato.is_ripe() for tomato in self.tomatoes])
-
-    def give_away_all(self):
-        self.tomatoes = []
-```
-
-## Класс `Gardener`:
-1) Создайте класс `Gardener`
-2) Создайте метод `__init__()`, внутри которого будут определены два динамических свойства: `name` (передается параметром, является публичным) и `_plant` (принимает объект класса TomatoBush). После написания этого блока кода в комментарии к нему укажите какими являются эти два свойства
-3) Создайте метод `work()`, который заставляет садовника работать, что позволяет растению становиться более зрелым
-4) Создайте метод `harvest()`, который проверяет, все ли плоды созрели. Если все, то садовник собирает урожай. Если нет, то метод печатает предупреждение
-5) Создайте статический метод `knowledge_base()`, который выведет в консоль справку по садоводству
-
-```python
-class Gardener:
-
-    def __init__(self, name, plant):
-        self.name = name  # Имя садовника, публичное свойство
-        self._plant = plant # Объект TomatoBush, растение, приватное свойство
-
-    def work(self):
-        self._plant.grow_all()
-
-    def harvest(self):
-        if self._plant.all_are_ripe():
-            self._plant.give_away_all()
-            print(f"Садовник {self.name} собрал урожай!")
-        else:
-            print(f"Садовник {self.name}: Помидоры еще не созрели!")
-
-    @staticmethod
-    def knowledge_base():
-        print("Справка по садоводству: \n"
-              "Помидоры растут постепенно, от отсутствия до красного цвета.\n"
-              "Ухаживайте за ними и они порадуют вас вкусным урожаем.")
-```
-
-## Тесты:
-## 1) Вызовите справку по садоводству
-
-```python
-Gardener.knowledge_base()  # Вызов справки по садоводству
-print()
-```
-### Результат.
-
-
-## 2) Создайте объекты классов `TomatoBush` и `Gardener`
-
-```python
-bush = TomatoBush(5)  # Создание куста с 5 помидорами
-gardener = Gardener("Иван", bush)  # Создание садовника Ивана
+for i in range(199):
+  next(fib_sequence)
+print(f"200-е число Фибоначчи: {next(fib_sequence)}")
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/3081137e-135e-4600-a40b-2dc1c7b72748)
 
 
-## 3) Используя объект класса `Gardener`, поухаживайте за кустом с помидорами
+
+## Вывод
+1. `slots = ['name']`: Этот атрибут класса `slots` указывает Python, что в классе `Sasha` можно использовать только атрибут `name`.
+2. `init(self, name)`: Конструктор класса. Он принимает имя человека как аргумент и сравнивает его со своим именем. 
+3. `person2.surname = 'Обласова'` - попытка присвоить `person2` атрибут `surname`. Эта строка вызовет ошибку `AttributeError: 'Sasha' object has no attribute 'surname'`, поскольку `Sasha` не определяет атрибут `surname`.
+
+## Самостоятельная работа №2
+### К коду предыдущей задачи добавьте запоминание каждого числа Фибоначчи в файл “fib.txt”, при этом каждое число должно находиться на отдельной строчке. Результатом выполнения задачи будет листинг кода и скриншот получившегося файла
 
 ```python
-print("Уход за кустом:")
-for _ in range(3):  # Симуляция роста в течение 3 дней
-    gardener.work()
-    print(f"Томаты на кусте: {[tomato._state for tomato in bush.tomatoes]}")
-print()
+def fib(n):
+  a, b = 1, 1
+  for _ in range(n):
+    yield a
+    a, b = b, a + b
+
+fib_sequence = fib(200)
+
+with open("fib.txt", "w") as f:
+  for i in range(200):
+    num = next(fib_sequence)
+    f.write(str(num) + "\n")
+
+print(f"200-е число Фибоначчи: {num}")
 ```
 
 ### Результат.
+![image](https://github.com/user-attachments/assets/af2637a6-df8d-425d-b475-b4d9ca9a78cb)
 
-
-## 4) Попробуйте собрать урожай, когда томаты еще не дозрели. Продолжайте ухаживать за ними
-
-```python
-print("Попытка сбора урожая:")
-gardener.harvest()
-print()
-
-print("Продолжение ухода:")
-for _ in range(2):  # Симуляция роста в течение 2 дней
-    gardener.work()
-    print(f"Томаты на кусте: {[tomato._state for tomato in bush.tomatoes]}")
-print()
-```
-
-### Результат.
-
-
-## 5) Соберите урожай
-
-```python
-print("Сбор урожая:")
-gardener.harvest()
-```
-
-### Результат.
-
-
-Результатом работы вашей программы будет листинг кода с подробными комментариями и скриншоты выполенния всех тестов.
-
-### Результат.
-
-```python
-class Tomato: # Класс, представляющий томат
-
-    states = ["отсутствует", "цветение", "зеленый", "красный"]  # Стадии созревания
-
-    def __init__(self, index): # Инициализирует томат
-        self._index = index  # Индекс томата, приватное свойство
-        self._state = self.states[0] # Начальная стадия созревания, приватное свойство
-
-    def grow(self): # Переводит томат на следующую стадию созревания
-        current_state_index = self.states.index(self._state) # Находим индекс текущей стадии
-        if current_state_index < len(self.states) - 1: # Проверяем, есть ли следующая стадия
-            self._state = self.states[current_state_index + 1] # Переходим на следующую стадию
-
-    def is_ripe(self): # Проверяет, созрел ли томат
-        return self._state == "красный"
-
-
-class TomatoBush: # Класс, представляющий куст с помидорами
-
-    def __init__(self, num_tomatoes): #Инициализирует куст с заданным количеством томатов
-        self.tomatoes = [Tomato(i) for i in range(num_tomatoes)] # Создаем список томатов
-
-    def grow_all(self): # Переводит все томаты на кусте на следующую стадию созревания
-        for tomato in self.tomatoes:
-            tomato.grow()
-
-    def all_are_ripe(self): # Проверяет, все ли томаты на кусте созрели
-        return all([tomato.is_ripe() for tomato in self.tomatoes])
-
-    def give_away_all(self): # Удаляет все томаты с куста после сбора урожая
-        self.tomatoes = []
-
-
-class Gardener: # Класс, представляющий садовника
-
-    def __init__(self, name, plant): # Инициализирует садовника
-        self.name = name  # Имя садовника, публичное свойство
-        self._plant = plant # Объект TomatoBush, растение, приватное свойство
-
-    def work(self): # Садовник ухаживает за кустом, заставляя томаты расти
-        self._plant.grow_all()
-
-    def harvest(self): # Садовник собирает урожай, если все томаты созрели
-        if self._plant.all_are_ripe(): # Проверяем, созрели ли все томаты
-            self._plant.give_away_all() # Сбор урожая
-            print(f"Садовник {self.name} собрал урожай!")
-        else:
-            print(f"Садовник {self.name}: Помидоры еще не созрели!")
-
-    @staticmethod
-    def knowledge_base(): # Выводит справку по садоводству
-        print("Справка по садоводству: \n"
-              "Помидоры растут постепенно, от отсутствия до красного цвета.\n"
-              "Ухаживайте за ними и они порадуют вас вкусным урожаем.")
-
-
-# Тесты
-Gardener.knowledge_base()  # Вызов справки по садоводству
-print()
-
-bush = TomatoBush(5)  # Создание куста с 5 помидорами
-gardener = Gardener("Иван", bush)  # Создание садовника Ивана
-
-print("Уход за кустом:")
-for _ in range(3):  # Симуляция роста в течение 3 дней
-    gardener.work()
-    print(f"Томаты на кусте: {[tomato._state for tomato in bush.tomatoes]}")
-print()
-
-print("Попытка сбора урожая:")
-gardener.harvest()
-print()
-
-print("Продолжение ухода:")
-for _ in range(2):  # Симуляция роста в течение 2 дней
-    gardener.work()
-    print(f"Томаты на кусте: {[tomato._state for tomato in bush.tomatoes]}")
-print()
-
-print("Сбор урожая:")
-gardener.harvest()
-```
-
-## Общие выводы по теме
-
+![image](https://github.com/user-attachments/assets/eadf343c-aa50-4a78-bde0-391083e97641)
